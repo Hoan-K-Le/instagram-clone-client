@@ -24,10 +24,13 @@ export default function Navbar({ currentUser, handleLogout }) {
   )
 
   return (
-    <nav>
+    <nav className="bg-white border-gray-200 px-2 sm:px-10 py-2.5 rounded dark:bg-pink-800">
+
       <Link to='/'>User App</Link>{' || '}
 
       {currentUser ? loggedIn : loggedOut}
+
     </nav>
+
   )
 }
