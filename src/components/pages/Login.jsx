@@ -2,6 +2,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 import { Navigate, Link } from 'react-router-dom'
+import image from '../../images/picitupfinal.png'
 
 const serverUrl = process.env.REACT_APP_SERVER_URL
 
@@ -52,7 +53,10 @@ export default function Login({ currentUser, setCurrentUser }) {
     <div>
       <div className="h-screen bg-gray-100 flex flex-col justify-center items-center">
         <div className="bg-white mb-3 border-gray-300 w-80 pt-8 pb-5 flex flex-col items-center">
-          <h1>Login to your Account:</h1>
+          <img
+            className="object-cover round h-20 w-35 pb-2 mb-15"
+            src={image}
+          />
 
           <p>{msg}</p>
 
