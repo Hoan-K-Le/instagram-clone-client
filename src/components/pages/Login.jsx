@@ -50,14 +50,14 @@ export default function Login({ currentUser, setCurrentUser }) {
 
   return (
     <div>
-      <div className="h-screen bg-gray-100 flex flex-col justify-center item-center">
-        <div className="bg-white mb-3 border-gray-300 w--80 pt-8 pb-4 flex flex-col items-center">
+      <div className="h-screen bg-gray-100 flex flex-col justify-center items-center">
+        <div className="bg-white mb-3 border-gray-300 w-80 pt-8 pb-5 flex flex-col items-center">
           <h1>Login to your Account:</h1>
 
           <p>{msg}</p>
 
           <form
-            className="w-64 flex flex-col gap-1 mt-8"
+            className="w-64 flex flex-col gap-1 mt-5"
             onSubmit={handleSubmit}
           >
             {/* <label htmlFor="email">Email: </label> */}
