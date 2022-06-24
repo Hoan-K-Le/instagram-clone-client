@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import Login from './components/pages/Login'
 import Profile from './components/pages/Profile'
 import Register from './components/pages/Register'
-import Welcome from './components/pages/Welcome'
+// import Welcome from './components/pages/Welcome'
 import Navbar from './components/Navbar'
 import jwt_decode from 'jwt-decode'
 import { Navigate } from 'react-router-dom'
@@ -40,7 +40,7 @@ function App() {
       <h2 className='text-3xl font-bold text-blue-600'>hello world</h2>
 
       <Routes>
-        <Route exact path='/' element={<Welcome />} />
+        {/* <Route exact path='/' element={<Welcome />} /> */}
         <Route
           exact
           path='/register'
@@ -53,7 +53,7 @@ function App() {
         />
         <Route
           exact
-          path='/login'
+          path='/'
           element={
             <Login currentUser={currentUser} setCurrentUser={setCurrentUser} />
           }
