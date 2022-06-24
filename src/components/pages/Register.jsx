@@ -47,7 +47,7 @@ export default function Register({ currentUser, setCurrentUser }) {
   return (
     <div className="h-screen bg-gray-100 flex flex-col justify-center items-center">
       <div className="bg-white mb-3 border-gray-300 w-80 pt-8 pb-5 flex flex-col items-center">
-        <h1 className=" p-2  text-center font-BlinkMacSystemFont">
+        <h1 className=" p-2 text-xl text-gray-600  text-center font-sans">
           Sign up to see photos and videos from your friends
         </h1>
 
