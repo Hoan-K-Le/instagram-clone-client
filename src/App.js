@@ -1,4 +1,3 @@
-import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Login from './components/pages/Login'
@@ -39,7 +38,7 @@ function App() {
         <Navbar currentUser={currentUser} handleLogout={handleLogout} />
       </header>
       <h2 className='text-3xl font-bold text-blue-600'>hello world</h2>
-      
+
       <Routes>
         <Route exact path='/' element={<Welcome />} />
         <Route
