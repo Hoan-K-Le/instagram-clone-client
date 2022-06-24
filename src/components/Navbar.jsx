@@ -21,12 +21,12 @@ export default function Navbar({ currentUser, handleLogout }) {
 
   return (
     <nav className="bg-white border-gray-200 px-2 sm:px-10 py-2.5 rounded dark:bg-pink-800">
-
+      <div class="container flex flex-wrap justify-evenly items-center mx-auto">
       <Link to='/'>User App</Link>{' || '}
-    
+
 
       {currentUser ? loggedIn : loggedOut}
-
+      </div>
     </nav>
 
   )
