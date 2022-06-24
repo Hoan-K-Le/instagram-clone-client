@@ -7,6 +7,14 @@
 
 ![](wireframe.png)
 
+## REST Routes
+
+![](Rest1.png)
+
+![](Rest2.png)
+
+![](Rest3.png)
+
 ## User Stories
 
 - As a user, I want to be able to log in
@@ -30,12 +38,6 @@
 
 - Be able to like/dislike a picture
 - Have a community post
+
 =======
-# Pic it Up
-
-Welcome to Pic it Up, where users can post their favorite pictures, comment on them and view other user's photos.
-
-Login and update your profile any time.
-
-Happy scrolling
 
