@@ -110,7 +110,7 @@ export default function Register({ currentUser, setCurrentUser }) {
           </span>
 
           <button
-            className="mt-2 text-sm text-center bg-blue-300 text-white py-1 rounded font-medium"
+            className="mt-2 text-sm text-center bg-blue-500 text-white py-1 rounded font-medium"
             type="submit"
           >
             Sign up
