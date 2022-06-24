@@ -15,16 +15,9 @@ export default function Register({ currentUser, setCurrentUser }) {
     e.preventDefault()
     console.log('log the user in')
     try {
-      const reqBody = {
-        name,
-        email,
-        password,
-      }
+      const reqBody = { name, email, password }
 
-      const res = await axios.post(
-        `${serverUrl}/api-v1/users/register`,
-        reqBody
-      )
+      const res = await axios.post(`${serverUrl}/api-v1/users/register`, reqBody)
 
       // save the token in localstorage
       const { token } = res.data
@@ -55,30 +48,24 @@ export default function Register({ currentUser, setCurrentUser }) {
       <p>{msg}</p>
 
       <form onSubmit={handleSubmit}>
+
         <label htmlFor='name'>Name: </label>
-        <input
-          type='text'
-          id='name'
-          placeholder='Your name...'
-          onChange={e => setName(e.target.value)}
-        />
+        <input type='text' id='name'
+               placeholder='Your name...'
+               onChange={e => setName(e.target.value)} />
 
         <label htmlFor='email'>Email: </label>
-        <input
-          type='email'
-          id='email'
-          placeholder='Your email...'
-          onChange={e => setEmail(e.target.value)}
-        />
+        <input type='email' id='email'
+               placeholder='Your email...'
+               onChange={e => setEmail(e.target.value)} />
 
         <label htmlFor='password'>Password: </label>
-        <input
-          type='password'
-          id='password'
-          placeholder='Your Password...'
-          onChange={e => setPassword(e.target.value)}
-        />
+        <input type='password' id='password'
+               placeholder='Your Password...'
+               onChange={e => setPassword(e.target.value)} />
+
         <button type='submit'>Register</button>
+        
       </form>
     </div>
   )

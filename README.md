@@ -10,6 +10,14 @@ Happy scrolling
 
 ![](wireframe.png)
 
+## REST Routes
+
+![](Rest1.png)
+
+![](Rest2.png)
+
+![](Rest3.png)
+
 ## User Stories
 
 - As a user, I want to be able to log in
@@ -33,3 +41,9 @@ Happy scrolling
 
 - Be able to like/dislike a picture
 - Have a community post
+<<<<<<< HEAD
+=======
+
+=======
+
+>>>>>>> c1c5d0089f27ae7f892bed05d0511701f747e1c4
