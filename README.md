@@ -1,7 +1,10 @@
+# Pic it Up
 
-## Pic-It-Up
+Welcome to Pic it Up, where users can post their favorite pictures, comment on them and view other user's photos.
 
-- Pic-It-Up is a website where a user can post whatever picture they desire, and have other users be able to view certain picture's made by them, and be able to leave a comment on it if they like it.
+Login and update your profile any time.
+
+Happy scrolling
 
 ## Wireframe/ERD
 
@@ -30,12 +33,3 @@
 
 - Be able to like/dislike a picture
 - Have a community post
-=======
-# Pic it Up
-
-Welcome to Pic it Up, where users can post their favorite pictures, comment on them and view other user's photos.
-
-Login and update your profile any time.
-
-Happy scrolling
-
