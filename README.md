@@ -41,4 +41,3 @@ Happy scrolling
 
 - Be able to like/dislike a picture
 - Have a community post
-
