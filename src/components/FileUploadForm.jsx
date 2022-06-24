@@ -5,7 +5,7 @@ const serverUrl = process.env.REACT_APP_SERVER_URL
 
 export default function FileUploadForm() {
   const [formImg, setFormImg] = useState('')
-  //   const [title, setTitle] = useState('')
+  const [title, setTitle] = useState('')
   const [msg, setMsg] = useState('')
   const [image, setImage] = useState('')
 
@@ -15,7 +15,7 @@ export default function FileUploadForm() {
       // multipart form data object
       const formData = new FormData()
       formData.append('image', formImg)
-      //   formData.append('title', title)
+      formData.append('title', title)
       const res = await axios.post(`${serverUrl}/api-v1/users`, formData)
       setImage(res.data.cloudImage)
       console.log(res.data)
@@ -35,6 +35,12 @@ export default function FileUploadForm() {
           id='image'
           onChange={e => setFormImg(e.target.files[0])}
           encType='multipart/form-data'
+        />
+
+        <input
+          type='text'
+          onChange={e => setTitle(e.target.value)}
+          value={title}
         />
 
         <button type='submit'>Submit</button>
