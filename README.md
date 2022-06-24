@@ -8,15 +8,15 @@ Happy scrolling
 
 ## Wireframe/ERD
 
-![](wireframe.png)
+![](./wireframes/wireframe.png)
 
 ## REST Routes
 
-![](Rest1.png)
+![](./wireframes/Rest1.png)
 
-![](Rest2.png)
+![](./wireframes/Rest2.png)
 
-![](Rest3.png)
+![](./wireframes/Rest3.png)
 
 ## User Stories
 
@@ -42,4 +42,3 @@ Happy scrolling
 - Be able to like/dislike a picture
 - Have a community post
 
-=======
