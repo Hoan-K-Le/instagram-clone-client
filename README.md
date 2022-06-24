@@ -41,12 +41,3 @@ Happy scrolling
 
 - Be able to like/dislike a picture
 - Have a community post
-<<<<<<< HEAD
-=======
-  <<<<<<< HEAD
-  =======
-
-=======
-
-> > > > > > > c1c5d0089f27ae7f892bed05d0511701f747e1c4
->>>>>>> 361957b6c592a7a7093c0a328ddca81295f33ad7
