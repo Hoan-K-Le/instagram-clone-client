@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import FileUploadForm from '../FileUploadForm'
 
 export default function Profile({
   currentUser: { name, email },
@@ -49,6 +50,7 @@ export default function Profile({
         Here is the secret message that is only available to users of User App:{' '}
       </h2>
       <h3>{msg}</h3>
+      <FileUploadForm />
     </div>
   )
 }
