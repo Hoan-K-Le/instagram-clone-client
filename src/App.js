@@ -69,7 +69,7 @@ function App() {
                 handleLogout={handleLogout}
               />
             ) : (
-              <Navigate to='/login' />
+              <Navigate to='/' />
             )
           }
         />
