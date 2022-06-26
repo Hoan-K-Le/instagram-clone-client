@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import Login from './components/pages/Login'
 import Profile from './components/pages/Profile'
 import Register from './components/pages/Register'
-// import Welcome from './components/pages/Welcome'
+import Welcome from './components/pages/Welcome'
 import Navbar from './components/Navbar'
 import jwt_decode from 'jwt-decode'
 import { Navigate } from 'react-router-dom'
@@ -37,10 +37,9 @@ function App() {
       <header>
         <Navbar currentUser={currentUser} handleLogout={handleLogout} />
       </header>
-      
 
       <Routes>
-        {/* <Route exact path='/' element={<Welcome />} /> */}
+        <Route exact path='/test' element={<Welcome />} />
         <Route
           exact
           path='/register'
