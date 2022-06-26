@@ -45,7 +45,7 @@ export default function Profile({
   return (
     <div>
       <div className="h-fit mt-10 bg-white flex flex-col justify-center items-center">
-        <div className="bg-gray-100 rounded-xl mb-20 border-gray-300 w-200 p-10 flex flex-col items-center shadow-lg">
+        <div className="bg-gray-100 rounded-xl mb-5 border-gray-300 w-200 p-10 flex flex-col items-center shadow-lg">
           <h1 className='font-bold' >Hello, {name}</h1>
           
           <form class="flex items-center space-x-8">
@@ -58,7 +58,6 @@ export default function Profile({
                                         file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-300" />
               </label>
           </form>
-          
   
             <table class="border-gray-300">
               <tbody>
@@ -70,27 +69,56 @@ export default function Profile({
             </table>
 
           <div class='mt-10 flex flex-col justify-center items-center'>
-                <h2>
-                  Here is the secret message that is only available to users of User App:{' '}
-                </h2>
+                <h2 class="font-bold underline underline-offset-4"> User bio </h2>
               <h3>{msg}</h3>
           </div>
-
-          <FileUploadForm />
         </div>
       </div>
 
-      <h1 class='font-bold text-center underline underline-offset-8 mb-8' > Your Posts </h1>
+    <div className="bg-gray-100 rounded-xl mb-3 mx-5 p-5 flex flex-col items-center shadow-lg">
+      <h1 class='font-bold text-center underline underline-offset-8 mb-3' > Your Posts </h1>
+      <FileUploadForm />
+    </div>
+
         <div class='grid grid-cols-3'>
-          <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44" />
-          <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-top w-44 h-44" />
-          <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-right-top w-44 h-44" />
-          <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-left w-44 h-44" />
-          <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-center w-44 h-44" />
-          <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-right w-44 h-44" />
-          <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-left-bottom w-44 h-44" />
-          <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-bottom w-44 h-44" />
-          <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-right-bottom w-44 h-44" />
+
+          <div className="bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg">
+            <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44" />
+          </div>
+
+          <div className="bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg">
+            <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44" />
+          </div>
+
+          <div className="bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg">
+            <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44" />
+          </div>
+
+          <div className="bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg">
+            <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44" />
+          </div>
+
+          <div className="bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg">
+            <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44" />
+          </div>
+
+          <div className="bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg">
+            <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44" />
+          </div>
+
+          <div className="bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg">
+            <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44" />
+          </div>
+
+          <div className="bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg">
+            <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44" />
+          </div>
+
+          <div className="bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg">
+            <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44" />
+          </div>
+
+
       </div>
       
     </div>

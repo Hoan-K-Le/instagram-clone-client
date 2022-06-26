@@ -38,42 +38,27 @@ function App() {
         <Navbar currentUser={currentUser} handleLogout={handleLogout} />
       </header>
       
-
       <Routes>
         {/* <Route exact path='/' element={<Welcome />} /> */}
-        <Route
-          exact
-          path='/register'
-          element={
-            <Register
-              currentUser={currentUser}
-              setCurrentUser={setCurrentUser}
-            />
-          }
-        />
-        <Route
-          exact
-          path='/'
-          element={
-            <Login currentUser={currentUser} setCurrentUser={setCurrentUser} />
-          }
-        />
-        <Route
-          exact
-          path='/profile'
-          element={
-            currentUser ? (
-              <Profile
-                currentUser={currentUser}
-                setCurrentUser={setCurrentUser}
-                handleLogout={handleLogout}
-              />
-            ) : (
-              <Navigate to='/' />
-            )
-          }
-        />
+        <Route exact path='/register'
+               element={ <Register
+               currentUser={currentUser}
+               setCurrentUser={setCurrentUser} /> } />
+
+        <Route exact path='/' 
+               element={<Login 
+               currentUser={currentUser} 
+               setCurrentUser={setCurrentUser} /> } />
+
+        <Route exact path='/profile'
+               element={ currentUser ? (<Profile
+               currentUser={currentUser}
+               setCurrentUser={setCurrentUser}
+               handleLogout={handleLogout} /> ) : 
+               (<Navigate to='/' />) } />
+
       </Routes>
+      
     </div>
   )
 }
