@@ -43,14 +43,25 @@ export default function Profile({
 
   return (
     <div>
-      <h1>Hello, {name}</h1>
-      <p>Your email is: {email}</p>
+      <div className="h-fit bg-gray-100 flex flex-col justify-center items-center">
+        <div className="bg-white mb-20 border-gray-300 w-100 pt-10 pb-10 flex flex-col items-center">
+          <h1>Hello, {name}</h1>
+          <img src='avataricon.png' alt='placeholder' />
+          <button className="mt-3 px-2 text-sm text-center bg-purple-300 text-white py-1 rounded font-medium">Change Photo</button>
+            <p>Your email is: {email}</p>
 
-      <h2>
-        Here is the secret message that is only available to users of User App:{' '}
-      </h2>
-      <h3>{msg}</h3>
-      <FileUploadForm />
+            <h2>
+              Here is the secret message that is only available to users of User App:{' '}
+            </h2>
+            <h3>{msg}</h3>
+
+          <FileUploadForm />
+
+          <div className='container' >
+
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
