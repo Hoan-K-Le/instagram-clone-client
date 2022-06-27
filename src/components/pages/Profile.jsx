@@ -77,7 +77,7 @@ export default function Profile({
 
     <div className="bg-gray-100 rounded-xl mb-3 mx-5 p-5 flex flex-col items-center shadow-lg">
       <h1 class='font-bold text-center underline underline-offset-8 mb-3' > Your Posts </h1>
-      <FileUploadForm />
+      {/* <FileUploadForm /> */}
     </div>
 
         <div class='grid grid-cols-3'>
