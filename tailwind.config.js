@@ -1,4 +1,3 @@
-
 module.exports = {
   content: ['./src/**/*.{html,js,jsx}'],
   theme: {
@@ -6,8 +5,12 @@ module.exports = {
       fontFamily: {
         sans: ['-apple-system', 'BlinkMacSystemFont'],
       },
+      overflow: {
+        'hide': 'hidden'
+      }
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar-hide')
+  ],
 }
-
