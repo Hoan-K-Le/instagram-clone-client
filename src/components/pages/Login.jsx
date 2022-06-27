@@ -4,6 +4,7 @@ import jwt_decode from 'jwt-decode'
 import { Navigate, Link } from 'react-router-dom'
 import video from '../../images/background.mp4'
 import image from '../../images/picitupfinal.png'
+import '../../Login.css'
 
 const serverUrl = process.env.REACT_APP_SERVER_URL
 
@@ -52,11 +53,8 @@ export default function Login({ currentUser, setCurrentUser }) {
 
   return (
     <div>
-      <div
-        className="  bg-gray-100 flex flex-col justify-center items-center"
-        style={{ height: '75.2vh' }}
-      >
-        <video src={video} autoPlay loop muted className="absolute"></video>
+      <video src={video} autoPlay loop muted className="absolute"></video>
+      <div className="h-screen bg-gray-100 flex flex-col justify-center items-center">
         <div className=" mb-3 relative border-gray-300 w-80 pt-8 pb-5 flex flex-col items-center bg-gray-200">
           <img width="250" src={image} alt="pic" />
 
