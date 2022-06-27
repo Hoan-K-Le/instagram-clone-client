@@ -1,4 +1,3 @@
-
 module.exports = {
   content: ['./src/**/*.{html,js,jsx}'],
   theme: {
@@ -15,4 +14,3 @@ module.exports = {
     require('tailwind-scrollbar-hide')
   ],
 }
-
