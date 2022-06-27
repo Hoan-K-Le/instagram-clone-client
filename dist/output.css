@@ -25,6 +25,7 @@
   --tw-content: '';
 }
 
+
 /*
 1. Use a consistent sensible line-height in all browsers.
 2. Prevent adjustments of font size after orientation changes in iOS.
@@ -918,6 +919,12 @@ video {
 
 .font-bold {
   font-weight: 700;
+
+}
+
+.uppercase {
+  text-transform: uppercase;
+
 }
 
 .uppercase {
@@ -1002,6 +1009,9 @@ code {
   color: rgb(107 114 128 / var(--tw-text-opacity));
 }
 
+
+@media (prefers-color-scheme: dark) {
+
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -1034,6 +1044,10 @@ code {
     border-color: rgb(107 114 128 / var(--tw-border-opacity));
   }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b7c22d3c7482b6f7511871a1831cae7f43d51b1b
   .dark\:bg-gray-800 {
     --tw-bg-opacity: 1;
     background-color: rgb(31 41 55 / var(--tw-bg-opacity));

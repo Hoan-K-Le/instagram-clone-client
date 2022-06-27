@@ -38,6 +38,7 @@ function App() {
         <Navbar currentUser={currentUser} handleLogout={handleLogout} />
       </header>
 
+
       <Routes>
         <Route exact path='/test' element={<Welcome />} />
         <Route
@@ -73,7 +74,6 @@ function App() {
           }
         />
       </Routes>
-      
     </div>
   )
 }
