@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const serverUrl = process.env.REACT_APP_SERVER_URL
 
-export default function FileUploadForm() {
+export default function FileUploadForm({ modalToggle, setModalToggle }) {
   const [formImg, setFormImg] = useState(null)
   const [title, setTitle] = useState('')
   const [msg, setMsg] = useState('')
@@ -73,6 +73,7 @@ export default function FileUploadForm() {
                 type='button'
                 className='text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white'
                 data-modal-toggle='small-modal'
+                onClick={() => setModalToggle(!modalToggle)}
               >
                 <svg
                   className='w-5 h-5'
@@ -128,6 +129,7 @@ export default function FileUploadForm() {
             <div className='flex flex-row-reverse items-center p-6 space-x-2 rounded-b dark:border-gray-600'>
               <button
                 data-modal-toggle='small-modal'
+                onClick={() => setModalToggle(!modalToggle)}
                 type='button'
                 className='text-white bg-white hover:bg-red-100 focus:ring-4 bg-blue-700 focus:outline-none focus:ring-gray-200 rounded-lg text-sm font-bold px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-red-500 dark:focus:ring-gray-600 ml-2'
               >
