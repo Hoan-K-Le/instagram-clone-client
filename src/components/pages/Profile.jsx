@@ -63,14 +63,13 @@ export default function Profile({
                 alt='profileplacholder'
               />
             </div>
-            <label class='block'>
-              <span class='sr-only'>Choose profile photo</span>
-              <input
-                type='file'
-                class='block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0
-                                        file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-300'
-              />
-            </label>
+            <input
+              id='profilePic'
+              type='file'
+              accept='.png, .jpg, .jpeg'
+              class='hidden block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-300'
+            />
+            <label htmlFor='profilePic'>Upload a Profile Picture</label>
           </form>
 
           <table class='border-gray-300'>
@@ -92,17 +91,20 @@ export default function Profile({
       </div>
 
       {modalToggle ? (
-        <div className='bg-gray-100 rounded-xl mb-3 mx-5 p-5 flex flex-col items-center shadow-lg'>
-          <h1 class='font-bold text-center underline underline-offset-8 mb-3'>
-            {' '}
-            Your Posts{' '}
-          </h1>
-          <FileUploadForm
-            modalToggle={modalToggle}
-            setModalToggle={setModalToggle}
-          />
-        </div>
+        <FileUploadForm
+          modalToggle={modalToggle}
+          setModalToggle={setModalToggle}
+        />
       ) : null}
+
+      <div className='bg-gray-100 rounded-xl mb-3 mx-5 p-5 flex flex-col items-center shadow-lg'>
+        <h1 class='font-bold text-center underline underline-offset-8 mb-3'>
+          {' '}
+          Your Posts{' '}
+        </h1>
+      </div>
+
+      {modalButton}
 
       <div class='grid grid-cols-3'>
         <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
