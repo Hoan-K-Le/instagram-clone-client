@@ -7,6 +7,7 @@ import Welcome from './components/pages/Welcome'
 import Navbar from './components/Navbar'
 import jwt_decode from 'jwt-decode'
 import { Navigate } from 'react-router-dom'
+import User from './components/pages/User'
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
@@ -72,6 +73,7 @@ function App() {
             )
           }
         />
+        <Route exact path='/users/:id' element={<User />} />
       </Routes>
     </div>
   )
