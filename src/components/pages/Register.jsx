@@ -47,10 +47,10 @@ export default function Register({ currentUser, setCurrentUser }) {
 
   return (
     <div>
-      <div className=' relative overflow-hidden bg-gray-100 flex flex-col justify-center items-center h-screen'>
+      <div className='relative overflow-hidden bg-gray-100 flex flex-col justify-center items-center h-screen'>
         <video src={video} autoPlay loop muted className='absolute'></video>
         <div className='bg-gray-200 mb-3 border-gray-300 w-80 pt-8 pb-5 flex flex-col items-center relative'>
-          <h1 className=' p-2 text-xl text-gray-600  text-center font-sans'>
+          <h1 className='p-2 text-xl text-gray-600  text-center font-sans'>
             Sign up to see photos and videos from your friends
           </h1>
 
