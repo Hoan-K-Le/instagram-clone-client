@@ -25,6 +25,7 @@
   --tw-content: '';
 }
 
+
 /*
 1. Use a consistent sensible line-height in all browsers.
 2. Prevent adjustments of font size after orientation changes in iOS.
@@ -583,9 +584,11 @@ video {
   }
 }
 
+
 .fixed {
   position: fixed;
 }
+
 
 .relative {
   position: relative;
@@ -598,6 +601,7 @@ video {
 .bottom-8 {
   bottom: 2rem;
 }
+
 
 .top-0 {
   top: 0px;
@@ -776,6 +780,7 @@ video {
   border-width: 1px;
 }
 
+
 .border-b {
   border-bottom-width: 1px;
 }
@@ -783,6 +788,7 @@ video {
 .border-t {
   border-top-width: 1px;
 }
+
 
 .border-gray-200 {
   --tw-border-opacity: 1;
@@ -847,6 +853,7 @@ video {
   padding: 1.5rem;
 }
 
+
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -901,11 +908,13 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+
 }
 
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
+
 }
 
 .font-semibold {
@@ -918,6 +927,12 @@ video {
 
 .font-bold {
   font-weight: 700;
+
+}
+
+.uppercase {
+  text-transform: uppercase;
+
 }
 
 .uppercase {
@@ -926,6 +941,7 @@ video {
 
 .leading-relaxed {
   line-height: 1.625;
+
 }
 
 .text-white {
@@ -942,6 +958,7 @@ video {
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity));
 }
+
 
 .text-gray-900 {
   --tw-text-opacity: 1;
@@ -997,10 +1014,14 @@ code {
   z-index: 10;
 }
 
+
 .focus\:text-gray-500:focus {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
 }
+
+
+@media (prefers-color-scheme: dark) {
 
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
@@ -1034,10 +1055,12 @@ code {
     border-color: rgb(107 114 128 / var(--tw-border-opacity));
   }
 
+
   .dark\:bg-gray-800 {
     --tw-bg-opacity: 1;
     background-color: rgb(31 41 55 / var(--tw-bg-opacity));
   }
+
 
   .dark\:bg-blue-600 {
     --tw-bg-opacity: 1;
@@ -1088,6 +1111,7 @@ code {
     --tw-ring-opacity: 1;
     --tw-ring-color: rgb(75 85 99 / var(--tw-ring-opacity));
   }
+
 }
 
 @media (min-width: 640px) {
@@ -1096,6 +1120,7 @@ code {
     padding-right: 2.5rem;
   }
 }
+
 
 @media (min-width: 768px) {
   .md\:inset-0 {
@@ -1133,3 +1158,4 @@ code {
     margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
   }
 }
+
