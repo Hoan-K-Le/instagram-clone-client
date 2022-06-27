@@ -7,3 +7,15 @@
 
 // needs a comment form
 // inline edit input for editing the comment
+
+import React from 'react'
+
+export default function PictureDetails({ picture }) {
+  //change content to caption after wiping DB
+  return (
+    <div>
+      <h1>{picture.cloudId}</h1>
+      <p>{picture.content}</p>
+    </div>
+  )
+}
