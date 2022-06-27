@@ -7,7 +7,7 @@ import Welcome from './components/pages/Welcome'
 import Navbar from './components/Navbar'
 import jwt_decode from 'jwt-decode'
 import { Navigate } from 'react-router-dom'
-
+import Users from './components/pages/Users'
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
 
@@ -37,10 +37,6 @@ function App() {
       <header>
         <Navbar currentUser={currentUser} handleLogout={handleLogout} />
       </header>
-<<<<<<< HEAD
-=======
-
->>>>>>> 31f8eb6e51946545150889229d179fdebd726d6b
       <Routes>
         <Route exact path='/test' element={<Welcome />} />
         <Route
@@ -75,6 +71,7 @@ function App() {
             )
           }
         />
+        <Route path='/Users' element={<Users/>} />
       </Routes>
     </div>
   )
