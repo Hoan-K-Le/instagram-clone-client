@@ -8,6 +8,7 @@ import Navbar from './components/Navbar'
 import jwt_decode from 'jwt-decode'
 import { Navigate } from 'react-router-dom'
 import User from './components/pages/User'
+import Users from './components/pages/Users'
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
@@ -38,7 +39,6 @@ function App() {
       <header>
         <Navbar currentUser={currentUser} handleLogout={handleLogout} />
       </header>
-
       <Routes>
         <Route exact path='/test' element={<Welcome />} />
         <Route
@@ -74,6 +74,7 @@ function App() {
           }
         />
         <Route exact path='/users/:id' element={<User />} />
+        <Route exact path='/users' element={<Users/>} />
       </Routes>
     </div>
   )
