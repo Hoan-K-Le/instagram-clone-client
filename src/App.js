@@ -1,3 +1,5 @@
+import jwt_decode from 'jwt-decode'
+import { Navigate } from 'react-router-dom'
 import { Routes, Route } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Login from './components/pages/Login'
@@ -5,8 +7,6 @@ import Profile from './components/pages/Profile'
 import Register from './components/pages/Register'
 import Welcome from './components/pages/Welcome'
 import Navbar from './components/Navbar'
-import jwt_decode from 'jwt-decode'
-import { Navigate } from 'react-router-dom'
 import User from './components/pages/User'
 import Users from './components/pages/Users'
 
@@ -74,7 +74,7 @@ function App() {
           }
         />
         <Route exact path='/users/:id' element={<User />} />
-        <Route exact path='/users' element={<Users/>} />
+        <Route exact path='/users' element={<Users />} />
       </Routes>
     </div>
   )
