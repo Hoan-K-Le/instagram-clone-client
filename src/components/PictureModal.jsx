@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import Comment from './Comment'
 
 export default function PictureModal({
   picture,
@@ -14,7 +15,6 @@ export default function PictureModal({
     content: '',
     picture,
   })
-  //   const [comments, setComments] = useState(picture.comments)
 
   const serverUrl = process.env.REACT_APP_SERVER_URL
 
@@ -40,7 +40,7 @@ export default function PictureModal({
       console.log('this is before the delete')
       deleteComment(commentId)
       const userRes = await axios.get(`${serverUrl}/api-v1/users/${userId}`)
-      console.log(userRes)
+
       setUserProfile(userRes.data)
     } catch (err) {
       console.warn(err)
@@ -56,19 +56,18 @@ export default function PictureModal({
   }
 
   const allComments = picture.comments.map(comment => {
-    const {
-      user: { name, _id },
-      content,
-    } = comment
     return (
       <div key={comment._id}>
-        <h2>{name}</h2>
-        <p>{content}</p>
-        {currentUser.id === _id ? (
-          <button onClick={() => handleDelete(comment._id)}>
-            Delete Comment
-          </button>
-        ) : null}
+        <Comment
+          handleDelete={handleDelete}
+          comment={comment}
+          currentUser={currentUser}
+          commentFormData={commentFormData}
+          setCommentFormData={setCommentFormData}
+          serverUrl={serverUrl}
+          userId={userId}
+          setUserProfile={setUserProfile}
+        />
       </div>
     )
   })
