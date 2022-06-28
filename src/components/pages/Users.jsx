@@ -12,7 +12,7 @@ export default function Users() {
     const getUsers = async () => {
       try {
         const response = await axios.get(`${serverUrl}/api-v1/users`)
-        console.log(response.data)
+        // console.log(response.data)
         setUsers(response.data)
       } catch (err) {
         console.warn('errrr', err)
@@ -22,11 +22,10 @@ export default function Users() {
   }, [])
 
   const allUsers = users.map(user => {
-
     return (
       <li key={user._id}>
         <Link to={`/users/${user._id}`}>
-        <UserDisplay user={user} />
+          <UserDisplay user={user} />
         </Link>
       </li>
     )

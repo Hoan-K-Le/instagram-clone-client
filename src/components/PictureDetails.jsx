@@ -10,10 +10,15 @@
 
 import React from 'react'
 
-export default function PictureDetails({ picture: { cloudId, caption } }) {
+export default function PictureDetails({
+  picture: { cloudId, caption },
+  modalToggle,
+  setModalToggle,
+}) {
   //change content to caption after wiping DB
+
   return (
-    <div>
+    <div onClick={() => setModalToggle(!modalToggle)}>
       <img src='http://placekitten.com/200/300' alt='placeholder' />
       <h1>{cloudId}</h1>
       <p>{caption}</p>
