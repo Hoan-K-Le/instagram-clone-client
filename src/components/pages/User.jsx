@@ -5,15 +5,17 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { PhotographIcon } from '@heroicons/react/outline'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import avatarIcon from '../../images/avataricon.png'
 import PictureDetails from '../PictureDetails'
+import FileUploadForm from '../FileUploadForm'
 
 export default function User() {
   // state for the secret message for user priv data
   const [userProfile, setUserProfile] = useState({
     pictures: [],
   })
+  const [modalToggle, setModalToggle] = useState(false)
   const { id } = useParams()
 
   const serverUrl = process.env.REACT_APP_SERVER_URL
@@ -25,7 +27,7 @@ export default function User() {
         const res = await axios.get(`${serverUrl}/api-v1/users/${id}`)
         setUserProfile(res.data)
         // setPictures(res.data.pictures)
-        console.log(res.data)
+        // console.log(res.data)
       } catch (err) {
         console.warn(err)
       }
@@ -36,9 +38,13 @@ export default function User() {
 
   const allUserPictures = userProfile.pictures.map(picture => {
     return (
-      <Link to='/picture/:id' key={picture._id}>
-        <PictureDetails picture={picture} />
-      </Link>
+      //   <Link to={`/picture/${picture._id}`} key={picture._id}>
+      <PictureDetails
+        setModalToggle={setModalToggle}
+        modalToggle={modalToggle}
+        picture={picture}
+      />
+      //   </Link>
     )
   })
 
@@ -69,6 +75,13 @@ export default function User() {
           Your Posts{' '}
         </h1>
       </div> */}
+
+      {modalToggle ? (
+        <FileUploadForm
+          setModalToggle={setModalToggle}
+          modalToggle={modalToggle}
+        />
+      ) : null}
 
       {allUserPictures}
 
