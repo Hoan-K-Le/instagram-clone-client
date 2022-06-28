@@ -8,9 +8,9 @@ import { PhotographIcon } from '@heroicons/react/outline'
 import { useParams } from 'react-router-dom'
 import avatarIcon from '../../images/avataricon.png'
 import PictureDetails from '../PictureDetails'
-import FileUploadForm from '../FileUploadForm'
+import PictureModal from '../PictureModal'
 
-export default function User() {
+export default function User({ currentUser }) {
   // state for the secret message for user priv data
   const [userProfile, setUserProfile] = useState({
     pictures: [],
@@ -38,13 +38,24 @@ export default function User() {
 
   const allUserPictures = userProfile.pictures.map(picture => {
     return (
-      //   <Link to={`/picture/${picture._id}`} key={picture._id}>
-      <PictureDetails
-        setModalToggle={setModalToggle}
-        modalToggle={modalToggle}
-        picture={picture}
-      />
-      //   </Link>
+      <div key={picture._id}>
+        <PictureDetails
+          setModalToggle={setModalToggle}
+          modalToggle={modalToggle}
+          picture={picture}
+        />
+        {modalToggle ? (
+          <PictureModal
+            setModalToggle={setModalToggle}
+            modalToggle={modalToggle}
+            name={userProfile.name}
+            picture={picture}
+            currentUser={currentUser}
+            userId={id}
+            setUserProfile={setUserProfile}
+          />
+        ) : null}
+      </div>
     )
   })
 
@@ -75,13 +86,6 @@ export default function User() {
           Your Posts{' '}
         </h1>
       </div> */}
-
-      {modalToggle ? (
-        <FileUploadForm
-          setModalToggle={setModalToggle}
-          modalToggle={modalToggle}
-        />
-      ) : null}
 
       {allUserPictures}
 
