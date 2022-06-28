@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-
+import UserDisplay from '../UserDisplay'
 // display of the users
 const serverUrl = `${process.env.REACT_APP_SERVER_URL}`
 
@@ -22,12 +22,11 @@ export default function Users() {
   }, [])
 
   const allUsers = users.map(user => {
-    const { _id, name, pictures } = user
+
     return (
-      <li key={_id}>
-        <Link to={`/users/${_id}`}>
-          {name}
-          <img src="https://placekitten.com/200/300" alt="" />
+      <li key={user._id}>
+        <Link to={`/users/${user._id}`}>
+        <UserDisplay user={user} />
         </Link>
       </li>
     )
