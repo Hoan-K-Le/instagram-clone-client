@@ -10,12 +10,13 @@
 
 import React from 'react'
 
-export default function PictureDetails({ picture }) {
+export default function PictureDetails({ picture: { cloudId, caption } }) {
   //change content to caption after wiping DB
   return (
     <div>
-      <h1>{picture.cloudId}</h1>
-      <p>{picture.content}</p>
+      <img src='http://placekitten.com/200/300' alt='placeholder' />
+      <h1>{cloudId}</h1>
+      <p>{caption}</p>
     </div>
   )
 }

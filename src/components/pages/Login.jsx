@@ -6,7 +6,7 @@ import video from '../../images/background.mp4'
 import image from '../../images/picitupfinal.png'
 import '../../Login.css'
 
-const serverUrl = process.env.REACT_APP_SERVER_URL
+const serverUrl = `${process.env.REACT_APP_SERVER_URL}`
 
 export default function Login({ currentUser, setCurrentUser }) {
   const [email, setEmail] = useState('')
