@@ -9,7 +9,6 @@ import Welcome from './components/pages/Welcome'
 import Navbar from './components/Navbar'
 import User from './components/pages/User'
 import Users from './components/pages/Users'
-import PictureDetails from './components/PictureDetails'
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
@@ -74,9 +73,12 @@ function App() {
             )
           }
         />
-        <Route exact path='/users/:id' element={<User />} />
+        <Route
+          exact
+          path='/users/:id'
+          element={<User currentUser={currentUser} />}
+        />
         <Route exact path='/users' element={<Users />} />
-        <Route path='/picture/:id' element={<PictureDetails />} />
       </Routes>
     </div>
   )
