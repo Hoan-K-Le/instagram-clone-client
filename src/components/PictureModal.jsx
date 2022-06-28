@@ -11,30 +11,18 @@ export default function PictureModal({
   setUserProfile,
 }) {
   const [commentFormData, setCommentFormData] = useState({
-    user: currentUser.name,
     content: '',
     picture,
   })
-
-  //   console.log(currentUser)
+  //   const [comments, setComments] = useState(picture.comments)
 
   const serverUrl = process.env.REACT_APP_SERVER_URL
-
-  const allComments = picture.comments.map(comment => {
-    const { user, content } = comment
-    return (
-      <div key={comment._id}>
-        <h2>{user}</h2>
-        <p>{content}</p>
-      </div>
-    )
-  })
 
   const handleCommentSubmit = async e => {
     e.preventDefault()
     try {
       await axios.post(
-        `${serverUrl}/api-v1/pictures/${picture._id}/comment`,
+        `${serverUrl}/api-v1/pictures/${picture._id}/${currentUser.id}/comment`,
         commentFormData
       )
       const userRes = await axios.get(`${serverUrl}/api-v1/users/${userId}`)
@@ -46,6 +34,44 @@ export default function PictureModal({
       console.warn(err)
     }
   }
+
+  const handleDelete = async commentId => {
+    try {
+      console.log('this is before the delete')
+      deleteComment(commentId)
+      const userRes = await axios.get(`${serverUrl}/api-v1/users/${userId}`)
+      console.log(userRes)
+      setUserProfile(userRes.data)
+    } catch (err) {
+      console.warn(err)
+    }
+  }
+
+  const deleteComment = async commentId => {
+    try {
+      await axios.delete(`${serverUrl}/api-v1/comments/${commentId}`)
+    } catch (err) {
+      console.warn(err)
+    }
+  }
+
+  const allComments = picture.comments.map(comment => {
+    const {
+      user: { name, _id },
+      content,
+    } = comment
+    return (
+      <div key={comment._id}>
+        <h2>{name}</h2>
+        <p>{content}</p>
+        {currentUser.id === _id ? (
+          <button onClick={() => handleDelete(comment._id)}>
+            Delete Comment
+          </button>
+        ) : null}
+      </div>
+    )
+  })
   return (
     <div
       id='medium-modal'

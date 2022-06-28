@@ -15,6 +15,7 @@ export default function User({ currentUser }) {
   const [userProfile, setUserProfile] = useState({
     pictures: [],
   })
+  // const [pictures, setPictures] = useState([])
   const [modalToggle, setModalToggle] = useState(false)
   const { id } = useParams()
 
@@ -53,6 +54,7 @@ export default function User({ currentUser }) {
             currentUser={currentUser}
             userId={id}
             setUserProfile={setUserProfile}
+            // setPictures={setPictures}
           />
         ) : null}
       </div>
