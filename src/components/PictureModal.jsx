@@ -37,10 +37,9 @@ export default function PictureModal({
 
   const handleDelete = async commentId => {
     try {
-      console.log('this is before the delete')
+      //   console.log('this is before the delete')
       deleteComment(commentId)
       const userRes = await axios.get(`${serverUrl}/api-v1/users/${userId}`)
-
       setUserProfile(userRes.data)
     } catch (err) {
       console.warn(err)
