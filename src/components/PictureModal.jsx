@@ -35,12 +35,34 @@ export default function PictureModal({
     }
   }
 
+  // delete post
+  // able to delete the post now
+  // transfer this to the profile page where they can delete their post/pictures
+
+  const handleDeletePicture = async () => {
+    try {
+      deletePost()
+      const userPic = await axios.get(`${serverUrl}/api-v1/users/${userId}`)
+      setUserProfile(userPic.data)
+    } catch (err) {
+      console.warn('err', err)
+    }
+  }
+
+  const deletePost = async () => {
+    console.log(picture)
+    try {
+      await axios.delete(`${serverUrl}/api-v1/pictures/${picture._id}`)
+    } catch (err) {
+      console.warn(err)
+    }
+  }
+
   const handleDelete = async commentId => {
     try {
       console.log('this is before the delete')
       deleteComment(commentId)
       const userRes = await axios.get(`${serverUrl}/api-v1/users/${userId}`)
-
       setUserProfile(userRes.data)
     } catch (err) {
       console.warn(err)
@@ -67,10 +89,13 @@ export default function PictureModal({
           serverUrl={serverUrl}
           userId={userId}
           setUserProfile={setUserProfile}
+          handleDeletePicture={handleDeletePicture}
+          picture={picture}
         />
       </div>
     )
   })
+
   return (
     <div
       id="medium-modal"
@@ -143,6 +168,9 @@ export default function PictureModal({
               className="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
             >
               Decline
+            </button>
+            <button onClick={() => handleDeletePicture(picture._id)}>
+              Delete Post
             </button>
           </div>
         </div>
