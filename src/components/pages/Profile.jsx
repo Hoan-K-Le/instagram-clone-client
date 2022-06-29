@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import FileUploadForm from '../FileUploadForm'
 import { MailIcon, PhotographIcon } from '@heroicons/react/outline'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function Profile({
   currentUser: { name, email, id },
+  setCurrentUser,
   handleLogout,
 }) {
   // state for the secret message for user priv data
@@ -14,6 +15,7 @@ export default function Profile({
   })
   const [msg, setMsg] = useState('')
   const [modalToggle, setModalToggle] = useState(false)
+  const navigate = useNavigate()
 
   const serverUrl = process.env.REACT_APP_SERVER_URL
 
@@ -62,10 +64,13 @@ export default function Profile({
     fetchData()
   })
 
-  const handleDelete = async () => {
+  const handleDelete = async e => {
+    e.preventDefault()
     try {
       deleteProfile()
-      // navigate('/users')
+      handleLogout()
+      setCurrentUser(null)
+      navigate('/register')
     } catch (err) {
       console.warn('watch out its an error', err)
     }
@@ -85,12 +90,14 @@ export default function Profile({
     </button>
   )
 
+  // https://res.cloudinary.com/demo/image/upload/w_70,h_53,c_scale/turtles.jpg
+
   const allUserPictures = userProfile.pictures.map(picture => {
     const { cloudId, caption, _id } = picture
     return (
       <div key={_id}>
         <img
-          src={`https://res.cloudinary.com/dshcawt4j/image/upload/v1593119998/${cloudId}.png`}
+          src={`https://res.cloudinary.com/dshcawt4j/image/upload/w_310,h_200,c_scale/${cloudId}.png`}
           alt={cloudId}
         />
         <p>{caption}</p>
