@@ -82,7 +82,7 @@ function App() {
         <Route exact path='/users' element={<Users />} />
         <Route
           path='/profile/:id'
-          element={<ProfileEditForm currentUser={currentUser} />}
+          element={<ProfileEditForm setCurrentUser={setCurrentUser} currentUser={currentUser} />}
         />
       </Routes>
     </div>
