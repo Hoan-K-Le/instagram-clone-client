@@ -3,7 +3,11 @@ import axios from 'axios'
 
 const serverUrl = process.env.REACT_APP_SERVER_URL
 
-export default function FileUploadForm({ modalToggle, setModalToggle }) {
+export default function FileUploadForm({
+  modalToggle,
+  setModalToggle,
+  userId,
+}) {
   const [formImg, setFormImg] = useState(null)
   const [title, setTitle] = useState('')
   const [msg, setMsg] = useState('')
@@ -28,7 +32,10 @@ export default function FileUploadForm({ modalToggle, setModalToggle }) {
       const formData = new FormData()
       formData.append('image', formImg)
       formData.append('title', title)
-      const res = await axios.post(`${serverUrl}/api-v1/users`, formData)
+      const res = await axios.post(
+        `${serverUrl}/api-v1/users/${userId}/pictures`,
+        formData
+      )
       setImage(res.data.cloudImage)
       setFormImg(null)
       // console.log(res.data)
