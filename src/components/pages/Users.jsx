@@ -23,20 +23,15 @@ export default function Users() {
 
   const allUsers = users.map(user => {
     return (
-      <li key={user._id}>
+      <div key={user._id}>
         <Link to={`/users/${user._id}`}>
           <UserDisplay user={user} />
         </Link>
-      </li>
+      </div>
     )
   })
 
-  return (
-    <div>
-      <h1>hello</h1>
-      {allUsers}
-    </div>
-  )
+  return <div className="text-4xl grid grid-cols-4 gap-4 ">{allUsers}</div>
 }
 
 // use UserDisplay.jsx to map through and display each individual user
