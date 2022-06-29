@@ -90,7 +90,7 @@ export default function Register({ currentUser, setCurrentUser }) {
             <br></br>
             <span className=" text-xs text-center">
               People who use our service may have uploaded your contact
-              information to instagram.{' '}
+              information to Pic-it-Up.{' '}
               <a className="font-bold" href="#0">
                 Learn More
               </a>
@@ -114,6 +114,12 @@ export default function Register({ currentUser, setCurrentUser }) {
               <a className="font-bold" href="#0">
                 Cookies Policy.
               </a>
+            </span>
+            <br />
+            <span className=" text-xs text-center">
+              <p>
+                Already have an account? <a href="/">Login!</a>
+              </p>
             </span>
 
             <button

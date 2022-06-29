@@ -4,7 +4,6 @@ import jwt_decode from 'jwt-decode'
 import { Navigate, Link } from 'react-router-dom'
 import video from '../../images/background.mp4'
 import image from '../../images/picitupfinal.png'
-import '../../Login.css'
 
 const serverUrl = `${process.env.REACT_APP_SERVER_URL}`
 
@@ -33,8 +32,7 @@ export default function Login({ currentUser, setCurrentUser }) {
       const { token } = res.data
       localStorage.setItem('jwt', token)
       // decode the token
-      const decoded = jwt_decode(token)
-
+      const decoded = jwt_decode(token)``
       // set the user in App's state to be the decoded token
       setCurrentUser(decoded)
     } catch (err) {
@@ -52,9 +50,9 @@ export default function Login({ currentUser, setCurrentUser }) {
   }
 
   return (
-    <div className="relative overflow-hidden bg-gray-100 flex flex-col justify-center items-center h-screen">
-      <video src={video} autoPlay loop muted className="absolute"></video>
-      <div className=" bg-gray-100 flex flex-col justify-center items-center h-screen">
+    <div className="max-w-4xl mx-auto w-full overflow-hidden  bg-gray-100 flex flex-col justify-center min-h-full object-fill items-center h-screen">
+      <video src={video} autoPlay loop muted className="absolute "></video>
+      <div className=" bg-gray-100 flex flex-col justify-center items-center ">
         <div className=" mb-3 relative border-gray-300 w-80 pt-8 pb-5 flex flex-col items-center bg-gray-200">
           <img width="250" src={image} alt="pic" />
 

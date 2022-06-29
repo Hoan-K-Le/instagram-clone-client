@@ -2,12 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import FileUploadForm from '../FileUploadForm'
 import { MailIcon, PhotographIcon } from '@heroicons/react/outline'
-import { Link } from 'react-router-dom'
-import ProfileEditForm from './ProfileEditForm'
-import { useNavigate } from 'react-router-dom'
-import { Navigate } from 'react-router-dom'
-
-const serverUrl = process.env.REACT_APP_SERVER_URL
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function Profile({
   currentUser: { name, email, id },
@@ -15,9 +10,27 @@ export default function Profile({
   handleLogout,
 }) {
   // state for the secret message for user priv data
+  const [userProfile, setUserProfile] = useState({
+    pictures: [],
+  })
   const [msg, setMsg] = useState('')
   const [modalToggle, setModalToggle] = useState(false)
   const navigate = useNavigate()
+
+  const serverUrl = process.env.REACT_APP_SERVER_URL
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const res = await axios.get(`${serverUrl}/api-v1/users/${id}`)
+        setUserProfile(res.data)
+      } catch (err) {
+        console.warn()
+      }
+    }
+    fetchUser()
+    // eslint-disable-next-line
+  }, [id])
 
   // useEffect for getting the user data and checking auth
   useEffect(() => {
@@ -51,19 +64,13 @@ export default function Profile({
     fetchData()
   })
 
-  const modalButton = (
-    <button onClick={() => setModalToggle(!modalToggle)}>
-      Upload a picture
-    </button>
-  )
-
   const handleDelete = async e => {
     e.preventDefault()
     try {
       deleteProfile()
       handleLogout()
       setCurrentUser(null)
-      navigate('/')
+      navigate('/register')
     } catch (err) {
       console.warn('watch out its an error', err)
     }
@@ -77,12 +84,26 @@ export default function Profile({
     }
   }
 
-  // const handleLogouts = () => {
-  //   console.log('log the user out')
-  //   if (localStorage.getItem('jwt')) {
-  //     localStorage.removeItem('jwt')
-  //   }
-  // }
+  const modalButton = (
+    <button onClick={() => setModalToggle(!modalToggle)}>
+      Upload a picture
+    </button>
+  )
+
+  // https://res.cloudinary.com/demo/image/upload/w_70,h_53,c_scale/turtles.jpg
+
+  const allUserPictures = userProfile.pictures.map(picture => {
+    const { cloudId, caption, _id } = picture
+    return (
+      <div key={_id}>
+        <img
+          src={`https://res.cloudinary.com/dshcawt4j/image/upload/w_310,h_200,c_scale/${cloudId}.png`}
+          alt={cloudId}
+        />
+        <p>{caption}</p>
+      </div>
+    )
+  })
 
   return (
     <div>
@@ -127,7 +148,7 @@ export default function Profile({
             <h3>{msg}</h3>
           </div>
         </div>
-
+        <button onClick={handleDelete}>Delete Profile</button>
         <Link to={`/profile/${id}`}>
           <button>Edit Profile</button>
         </Link>
@@ -139,6 +160,8 @@ export default function Profile({
           modalToggle={modalToggle}
           setModalToggle={setModalToggle}
           userId={id}
+          userProfile={userProfile}
+          setUserProfile={setUserProfile}
         />
       ) : null}
 
@@ -150,6 +173,7 @@ export default function Profile({
       </div>
 
       {modalButton}
+      {allUserPictures}
 
       <div className="grid grid-cols-3">
         <div className="bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg">
