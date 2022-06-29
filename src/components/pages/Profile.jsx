@@ -4,7 +4,7 @@ import FileUploadForm from '../FileUploadForm'
 import { MailIcon, PhotographIcon } from '@heroicons/react/outline'
 
 export default function Profile({
-  currentUser: { name, email },
+  currentUser: { name, email, _id },
   handleLogout,
 }) {
   // state for the secret message for user priv data
@@ -97,6 +97,7 @@ export default function Profile({
         <FileUploadForm
           modalToggle={modalToggle}
           setModalToggle={setModalToggle}
+          userId={_id}
         />
       ) : null}
 
