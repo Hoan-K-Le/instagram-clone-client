@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import UserDisplay from '../UserDisplay'
-import Profile from './Profile'
 
 // display of the users
 const serverUrl = `${process.env.REACT_APP_SERVER_URL}`
