@@ -2,16 +2,16 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import FileUploadForm from '../FileUploadForm'
 import { MailIcon, PhotographIcon } from '@heroicons/react/outline'
-<<<<<<< HEAD
-import { useNavigate } from 'react-router-dom'
-
-const serverUrl = `${process.env.REACT_APP_SERVER_URL}`
-=======
 import { Link } from 'react-router-dom'
->>>>>>> 4a42066bee5f7ab0c0aa2abbb124e688a22f2b75
+import ProfileEditForm from './ProfileEditForm'
+import { useNavigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
+
+const serverUrl = process.env.REACT_APP_SERVER_URL
 
 export default function Profile({
-  currentUser: { name, email, _id },
+  currentUser: { name, email, id },
+  setCurrentUser,
   handleLogout,
 }) {
   // state for the secret message for user priv data
@@ -58,23 +58,31 @@ export default function Profile({
   )
 
   const handleDelete = async e => {
+    e.preventDefault()
     try {
-      e.preventDefault()
       deleteProfile()
-      console.log('delete profile')
+      handleLogout()
+      setCurrentUser(null)
       navigate('/')
     } catch (err) {
       console.warn('watch out its an error', err)
     }
   }
-
   const deleteProfile = async () => {
     try {
-      await axios.delete(`${serverUrl}/api-v1/users/${_id}`)
+      console.log(id)
+      await axios.delete(`${serverUrl}/api-v1/users/${id}`)
     } catch (err) {
       console.warn('watchoutitsanerror', err)
     }
   }
+
+  // const handleLogouts = () => {
+  //   console.log('log the user out')
+  //   if (localStorage.getItem('jwt')) {
+  //     localStorage.removeItem('jwt')
+  //   }
+  // }
 
   return (
     <div>
@@ -120,16 +128,17 @@ export default function Profile({
           </div>
         </div>
 
-        <Link to={`/profile/${_id}`}>
+        <Link to={`/profile/${id}`}>
           <button>Edit Profile</button>
         </Link>
+        {/* <button onClick={handleDelete}>Delete Profile</button> */}
       </div>
 
       {modalToggle ? (
         <FileUploadForm
           modalToggle={modalToggle}
           setModalToggle={setModalToggle}
-          userId={_id}
+          userId={id}
         />
       ) : null}
 

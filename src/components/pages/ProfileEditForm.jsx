@@ -1,10 +1,14 @@
+import axios from 'axios'
+import React, { useState } from 'react'
+
 // displays all of the user's detail to be edited via form
 
 // controlled form in that the user can choose what to edit
-import React, { useState } from 'react'
 
+const serverUrl = process.env.REACT_APP_SERVER_URL
 export default function ProfileEditForm({
   currentUser: { name, email, password, _id },
+  picture,
 }) {
   const [form, setForm] = useState({
     name,
@@ -25,30 +29,29 @@ export default function ProfileEditForm({
     <div>
       <h2>Edit Your Profile</h2>
       <form onSubmit={editFormSubmit}>
-        <label htmlFor='name'>Name: </label>
+        <label htmlFor="name">Name: </label>
         <input
-          type='text'
-          id='name'
+          type="text"
+          id="name"
           value={form.name}
           onChange={e => setForm({ ...form, name: e.target.value })}
         />
 
-        <label htmlFor='email'>Email: </label>
+        <label htmlFor="email">Email: </label>
         <input
-          type='text'
-          id='email'
+          type="text"
+          id="email"
           value={form.email}
           onChange={e => setForm({ ...form, email: e.target.value })}
         />
 
-        <label htmlFor='password'>Password: </label>
+        <label htmlFor="password">Password: </label>
         <input
-          type='text'
-          id='password'
+          type="text"
+          id="password"
           value={form.password}
           onChange={e => setForm({ ...form, password: e.target.value })}
         />
-
         <button>Submit Changes</button>
       </form>
     </div>

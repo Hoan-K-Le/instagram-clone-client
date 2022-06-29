@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import Comment from './Comment'
+import Profile from './pages/Profile'
 
 export default function PictureModal({
   picture,
@@ -30,29 +31,6 @@ export default function PictureModal({
 
       setCommentFormData({ ...commentFormData, content: '' })
       //   console.log(res)
-    } catch (err) {
-      console.warn(err)
-    }
-  }
-
-  // delete post
-  // able to delete the post now
-  // transfer this to the profile page where they can delete their post/pictures
-
-  const handleDeletePicture = async () => {
-    try {
-      deletePost()
-      const userPic = await axios.get(`${serverUrl}/api-v1/users/${userId}`)
-      setUserProfile(userPic.data)
-    } catch (err) {
-      console.warn('err', err)
-    }
-  }
-
-  const deletePost = async () => {
-    console.log(picture)
-    try {
-      await axios.delete(`${serverUrl}/api-v1/pictures/${picture._id}`)
     } catch (err) {
       console.warn(err)
     }
@@ -89,9 +67,10 @@ export default function PictureModal({
           serverUrl={serverUrl}
           userId={userId}
           setUserProfile={setUserProfile}
-          handleDeletePicture={handleDeletePicture}
+          // handleDeletePicture={handleDeletePicture}
           picture={picture}
         />
+        <Profile userId={userId} />
       </div>
     )
   })
@@ -169,9 +148,9 @@ export default function PictureModal({
             >
               Decline
             </button>
-            <button onClick={() => handleDeletePicture(picture._id)}>
+            {/* <button onClick={() => handleDeletePicture(picture._id)}>
               Delete Post
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

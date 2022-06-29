@@ -80,16 +80,10 @@ function App() {
           element={<User currentUser={currentUser} />}
         />
         <Route exact path='/users' element={<Users />} />
-<<<<<<< HEAD
-
-        {/* hoans tryna update profile */}
-        <Route path='/profile/:id' element={<Profile currentUser={currentUser} />} /> 
-=======
         <Route
           path='/profile/:id'
           element={<ProfileEditForm currentUser={currentUser} />}
         />
->>>>>>> 4a42066bee5f7ab0c0aa2abbb124e688a22f2b75
       </Routes>
     </div>
   )
