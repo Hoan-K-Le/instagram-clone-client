@@ -4,7 +4,7 @@
 import React, { useState } from 'react'
 
 export default function ProfileEditForm({
-  currentUser: { name, email, password, _id },
+  currentUser: { name, email, password, id },
 }) {
   const [form, setForm] = useState({
     name,
@@ -35,7 +35,7 @@ export default function ProfileEditForm({
 
         <label htmlFor='email'>Email: </label>
         <input
-          type='text'
+          type='email'
           id='email'
           value={form.email}
           onChange={e => setForm({ ...form, email: e.target.value })}
@@ -43,7 +43,7 @@ export default function ProfileEditForm({
 
         <label htmlFor='password'>Password: </label>
         <input
-          type='text'
+          type='password'
           id='password'
           value={form.password}
           onChange={e => setForm({ ...form, password: e.target.value })}
