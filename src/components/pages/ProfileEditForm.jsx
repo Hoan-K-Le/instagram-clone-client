@@ -24,7 +24,6 @@ export default function ProfileEditForm({
     }
   }
 
-
   return (
     <div className='h-screen bg-gray-100 flex flex-col justify-center items-center'>
       <div className='mb-3 relative rounded-xl shadow-lg border-gray-300 w-80 pt-8 pb-5 flex flex-col items-center bg-gray-200'>
