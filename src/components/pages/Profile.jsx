@@ -5,12 +5,30 @@ import { MailIcon, PhotographIcon } from '@heroicons/react/outline'
 import { Link } from 'react-router-dom'
 
 export default function Profile({
-  currentUser: { name, email, _id },
+  currentUser: { name, email, id },
   handleLogout,
 }) {
   // state for the secret message for user priv data
+  const [userProfile, setUserProfile] = useState({
+    pictures: [],
+  })
   const [msg, setMsg] = useState('')
   const [modalToggle, setModalToggle] = useState(false)
+
+  const serverUrl = process.env.REACT_APP_SERVER_URL
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const res = await axios.get(`${serverUrl}/api-v1/users/${id}`)
+        setUserProfile(res.data)
+      } catch (err) {
+        console.warn()
+      }
+    }
+    fetchUser()
+    // eslint-disable-next-line
+  }, [id])
 
   // useEffect for getting the user data and checking auth
   useEffect(() => {
@@ -44,11 +62,41 @@ export default function Profile({
     fetchData()
   })
 
+  const handleDelete = async () => {
+    try {
+      deleteProfile()
+      // navigate('/users')
+    } catch (err) {
+      console.warn('watch out its an error', err)
+    }
+  }
+  const deleteProfile = async () => {
+    try {
+      console.log(id)
+      await axios.delete(`${serverUrl}/api-v1/users/${id}`)
+    } catch (err) {
+      console.warn('watchoutitsanerror', err)
+    }
+  }
+
   const modalButton = (
     <button onClick={() => setModalToggle(!modalToggle)}>
       Upload a picture
     </button>
   )
+
+  const allUserPictures = userProfile.pictures.map(picture => {
+    const { cloudId, caption, _id } = picture
+    return (
+      <div key={_id}>
+        <img
+          src={`https://res.cloudinary.com/dshcawt4j/image/upload/v1593119998/${cloudId}.png`}
+          alt={cloudId}
+        />
+        <p>{caption}</p>
+      </div>
+    )
+  })
 
   return (
     <div>
@@ -92,8 +140,8 @@ export default function Profile({
             <h3>{msg}</h3>
           </div>
         </div>
-
-        <Link to={`/profile/${_id}`}>
+        <button onClick={handleDelete}>Delete Profile</button>
+        <Link to={`/profile/${id}`}>
           <button>Edit Profile</button>
         </Link>
       </div>
@@ -102,7 +150,9 @@ export default function Profile({
         <FileUploadForm
           modalToggle={modalToggle}
           setModalToggle={setModalToggle}
-          userId={_id}
+          userId={id}
+          userProfile={userProfile}
+          setUserProfile={setUserProfile}
         />
       ) : null}
 
@@ -114,6 +164,7 @@ export default function Profile({
       </div>
 
       {modalButton}
+      {allUserPictures}
 
       <div className='grid grid-cols-3'>
         <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
