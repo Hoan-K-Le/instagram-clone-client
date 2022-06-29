@@ -79,6 +79,9 @@ function App() {
           element={<User currentUser={currentUser} />}
         />
         <Route exact path='/users' element={<Users />} />
+
+        {/* hoans tryna update profile */}
+        <Route path='/profile/:id' element={<Profile currentUser={currentUser} />} /> 
       </Routes>
     </div>
   )

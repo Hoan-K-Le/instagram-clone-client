@@ -6,10 +6,11 @@ export default function UserDisplay({ user: { name, pictures } }) {
   //change content to caption after wiping DB
   // const mostRecentPic = pictures[0]
   return (
-    <div className="text-center items-center">
-      <h1>{name}</h1>
-
-      <img width="300px" src="http://placekitten.com/200/300" alt="place" />
+    <div>
+      <h1 className="text-center">{name}!</h1>
+      <div className="border-black items-center border bg-gray-100 flex justify-center">
+        <img width="300px" src="http://placekitten.com/200/300" alt="place" />
+      </div>
     </div>
   )
 }
