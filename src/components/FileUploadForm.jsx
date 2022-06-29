@@ -16,6 +16,7 @@ export default function FileUploadForm({
   const handleSubmit = async e => {
     e.preventDefault()
     formSubmit()
+    setModalToggle(!modalToggle)
   }
 
   const picInputChange = async e => {

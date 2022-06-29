@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import FileUploadForm from '../FileUploadForm'
 import { MailIcon, PhotographIcon } from '@heroicons/react/outline'
+import { Link } from 'react-router-dom'
 
 export default function Profile({
   currentUser: { name, email, _id },
@@ -91,6 +92,10 @@ export default function Profile({
             <h3>{msg}</h3>
           </div>
         </div>
+
+        <Link to={`/profile/${_id}`}>
+          <button>Edit Profile</button>
+        </Link>
       </div>
 
       {modalToggle ? (
