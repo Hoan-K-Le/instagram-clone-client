@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import FileUploadForm from '../FileUploadForm'
-import { MailIcon, PhotographIcon, UserGroupIcon } from '@heroicons/react/outline'
+import { MailIcon, PhotographIcon, PencilAltIcon, TrashIcon } from '@heroicons/react/outline'
 import { Link, useNavigate } from 'react-router-dom'
-import User from './User'
 
 export default function Profile({
   currentUser: { name, email, id },
@@ -154,7 +153,8 @@ export default function Profile({
           alt={cloudId}
         />
         <p className='text-center font-bold'>{caption}</p>
-        <button className='ml-80 bg-red-500 p-2 rounded-lg mb-3 font-bold text-white hover:-translate-y-0.5 hover:scale-110 hover:bg-orange-400 duration-300' onClick={() => handleDeletePost(_id)}>Delete Picture</button>
+        <button className='mt-3 ml-56 flex gap-x-2 row-reverse bg-red-500 p-2 rounded-lg mb-3 font-bold text-white hover:-translate-y-0.5 hover:scale-110 hover:bg-orange-400 duration-300' onClick={() => handleDeletePost(_id)}>
+          Delete Picture <TrashIcon className='h-5 w-5 text-white'/></button>
       </div>
     </div>
     )
@@ -205,9 +205,11 @@ export default function Profile({
           <h2 className='font-bold underline underline-offset-4'>Profile Options</h2>
           <div className='mt-3 grid grid-cols-2'>
             <Link to={`/profile/${id}`}>
-              <button className='shadow-lg transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-blue-500 duration-300 bg-green-500 p-2 rounded-lg font-bold text-white'>Edit Profile</button>
+              <button className='mr-3 flex gap-x-2 row-reverse shadow-lg transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-blue-500 duration-300 bg-green-500 p-2 rounded-lg font-bold text-white'>
+                Edit Profile <PencilAltIcon className='h-5 w-5 text-white'/> </button>
             </Link>
-              <button className='shadow-lg transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-orange-500 duration-300 bg-red-500 p-2 rounded-lg font-bold text-white' onClick={handleDelete}>Delete Profile </button>
+              <button className='ml-2 flex gap-x-2 row-reverse shadow-lg transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-orange-500 duration-300 bg-red-500 p-2 rounded-lg font-bold text-white' onClick={handleDelete}>
+                Delete Profile <TrashIcon className='h-5 w-5 text-white'/> </button>
           </div>
         </div>
       </div>
@@ -223,8 +225,8 @@ export default function Profile({
       ) : null}
       <div className='flex flex-col items-center'>
         <div className='box-content h-40 w-80 justify-center'>
-          <div className='bg-gray-100 rounded-xl mb-3 mx-5 p-5 flex flex-col items-center shadow-lg'>
-            <h1 className='font-bold text-center underline underline-offset-8 mb-3'>Your Posts</h1>
+          <div className='bg-gray-100 rounded-xl mx-5 p-5 flex flex-col items-center shadow-lg'>
+            <h1 className='font-bold text-center underline underline-offset-8'>Your Posts</h1>
             {modalButton}
           </div>
         </div>
