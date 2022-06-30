@@ -15,6 +15,8 @@ export default function Profile({
   })
   const [msg, setMsg] = useState('')
   const [modalToggle, setModalToggle] = useState(false)
+  const [formImg, setFormImg] = useState(null)
+  const [image, setImage] = useState('')
   const navigate = useNavigate()
 
   const serverUrl = process.env.REACT_APP_SERVER_URL
@@ -103,11 +105,41 @@ export default function Profile({
     }
   }
 
+  // sets the image as soon as it is uploaded
+  const picInputChange = async e => {
+    console.log('changed')
+    setFormImg(e.target.files[0])
+  }
+
+  const formSubmit = async () => {
+    try {
+      // multipart form data object
+      const formData = new FormData()
+      formData.append('image', formImg)
+      const res = await axios.post(
+        `${serverUrl}/api-v1/users/${id}/picture`,
+        formData
+      )
+      const userRes = await axios.get(`${serverUrl}/api-v1/users/${id}`)
+      setUserProfile(userRes.data)
+      setImage(res.data.cloudImage)
+      setFormImg(null)
+      console.log('upload success')
+    } catch (err) {
+      console.warn(err)
+      setMsg('Check Server Error')
+    }
+  }
+
   const modalButton = (
     <button onClick={() => setModalToggle(!modalToggle)}>
       Upload a picture
     </button>
   )
+
+  if (formImg) {
+    formSubmit()
+  }
 
   // https://res.cloudinary.com/demo/image/upload/w_70,h_53,c_scale/turtles.jpg
 
@@ -126,16 +158,21 @@ export default function Profile({
   })
 
   return (
-    <div className='bg'>
+    <div>
       <div className='h-fit mt-10 bg-white flex flex-col justify-center items-center'>
         <div className='bg-gray-100 rounded-xl mb-5 border-gray-300 w-200 p-10 flex flex-col items-center shadow-lg'>
           <h1 className='font-bold'>Hello, {name}</h1>
 
-          <form className='flex items-center space-x-8'>
+          {/* profile image form */}
+          <form onSubmit={formSubmit} className='flex items-center space-x-8'>
             <div className='shrink-0'>
               <img
                 className='h-40 w-40 object-cover rounded-full'
-                src='avataricon.png'
+                src={
+                  userProfile.profilePicture
+                    ? `https://res.cloudinary.com/dshcawt4j/image/upload/v1593119998/${userProfile.profilePicture}.png`
+                    : 'avataricon.png'
+                }
                 alt='profileplacholder'
               />
             </div>
@@ -143,10 +180,12 @@ export default function Profile({
               id='profilePic'
               type='file'
               accept='.png, .jpg, .jpeg'
+              onChange={picInputChange}
               className='hidden block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-300'
             />
             <label htmlFor='profilePic'>Upload a Profile Picture</label>
           </form>
+          {/* end of profile image form */}
 
           <table className='border-gray-300'>
             <tbody>
