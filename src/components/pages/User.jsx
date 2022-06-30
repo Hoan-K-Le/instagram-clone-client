@@ -9,7 +9,7 @@ import { useParams } from 'react-router-dom'
 import avatarIcon from '../../images/avataricon.png'
 import PictureDetails from '../PictureDetails'
 import PictureModal from '../PictureModal'
-
+// blur out bg when modal
 export default function User({ currentUser }) {
   // state for the secret message for user priv data
   const [userProfile, setUserProfile] = useState({
