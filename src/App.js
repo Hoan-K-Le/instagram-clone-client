@@ -11,7 +11,20 @@ import User from './components/pages/User'
 import Users from './components/pages/Users'
 import ProfileEditForm from './components/pages/ProfileEditForm'
 
+// darkmode 
+// import {createContext} from 'react'
+// import ReactSwitch from 'react-switch'
+// export const ThemeContext = createContext(null)
+
 function App() {
+// darkmode
+// const [theme, setTheme] = useState('light')
+// const toggleTheme = () => {
+//   setTheme((curr) => (curr === 'light' ? 'dark' : 'light'))
+// }
+
+
+
   const [currentUser, setCurrentUser] = useState(null)
   const navigate = useNavigate()
 
@@ -38,9 +51,18 @@ function App() {
     }
   }
   return (
-    <div className='App'>
+    // darkmode
+
+      // <ThemeContext.Provider value={{ theme, toggleTheme}}>
+    // <div className='' id={theme}>
+      <div>
+
       <header>
+        {/* darkmode */}
+        {/* <label>{theme === 'light' ? 'Light Mode' : 'Dark Mode'}</label> */}
+        {/* <ReactSwitch onChange={toggleTheme} checked={theme === 'dark'}/> */}
         <Navbar currentUser={currentUser} handleLogout={handleLogout} />
+
       </header>
       <Routes>
         <Route exact path='/test' element={<Welcome />} />
@@ -49,56 +71,62 @@ function App() {
           path='/register'
           element={
             <Register
-              currentUser={currentUser}
-              setCurrentUser={setCurrentUser}
+            currentUser={currentUser}
+            setCurrentUser={setCurrentUser}
             />
           }
-        />
+          />
         <Route
           exact
           path='/'
           element={
             <Login currentUser={currentUser} setCurrentUser={setCurrentUser} />
           }
-        />
+          />
         <Route
           exact
           path='/profile'
           element={
             currentUser ? (
               <Profile
-                currentUser={currentUser}
-                setCurrentUser={setCurrentUser}
-                handleLogout={handleLogout}
+              currentUser={currentUser}
+              setCurrentUser={setCurrentUser}
+              handleLogout={handleLogout}
               />
-            ) : (
-              <Navigate to='/' />
-            )
-          }
-        />
+              ) : (
+                <Navigate to='/' />
+                )
+              }
+              />
         <Route
-          exact
-          path='/users/:id'
-          element={<User currentUser={currentUser} />}
+        
+        exact
+        path='/users/:id'
+        element={<User currentUser={currentUser} />}
         />
         <Route
           exact
           path='/users'
           element={<Users currentUser={currentUser} />}
-        />
+          />
         <Route
           exact
           path='/profile/:id'
           element={
             <ProfileEditForm
-              setCurrentUser={setCurrentUser}
-              currentUser={currentUser}
+            setCurrentUser={setCurrentUser}
+            currentUser={currentUser}
             />
           }
-        />
+          />
       </Routes>
-    </div>
-  )
-}
 
-export default App
+    </div>
+    //  </div>
+          //  </ThemeContext.Provider>
+         
+         )
+        }
+        
+        export default App
+        

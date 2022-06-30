@@ -1,5 +1,6 @@
 module.exports = {
   content: ['./src/**/*.{html,js,jsx}'],
+  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
@@ -7,10 +8,11 @@ module.exports = {
       },
       overflow: {
         'hide': 'hidden'
+      },
+      colors: {
+        tb: '#000000'
       }
     },
   },
-  plugins: [
-    require('tailwind-scrollbar-hide')
-  ],
+ 
 }

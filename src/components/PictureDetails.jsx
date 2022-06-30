@@ -24,6 +24,7 @@ export default function PictureDetails({
   const [modalToggle, setModalToggle] = useState(false)
 
   return (
+
     <div
       onClick={() => {
         setModalToggle(!modalToggle)
@@ -50,5 +51,6 @@ export default function PictureDetails({
         />
       ) : null}
     </div>
+
   )
 }
