@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import Comment from './Comment'
-import Profile from './pages/Profile'
 
 export default function PictureModal({
   picture,
@@ -70,7 +69,6 @@ export default function PictureModal({
           // handleDeletePicture={handleDeletePicture}
           picture={picture}
         />
-        <Profile userId={userId} />
       </div>
     )
   })

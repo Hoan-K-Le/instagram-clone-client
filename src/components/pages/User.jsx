@@ -64,25 +64,36 @@ export default function User({ currentUser }) {
   return (
     <div>
       <div className={modalToggle ? 'blur ' : null}>
-      <div className='h-fit mt-10 bg-white flex flex-col justify-center items-center'>
-        <div className='bg-gray-100 rounded-xl mb-5 border-gray-300 w-200 p-10 flex flex-col items-center shadow-lg'>
-          <h1 className='font-bold'>{userProfile.name}</h1>
-          <img
-            className='h-40 w-40 object-cover rounded-full'
-            src={avatarIcon}
-            alt='profileplacholder'
-          />
+        <div className="h-fit mt-10 bg-white flex flex-col justify-center items-center">
+          <div className="flex-col flex items-center t p-2">
+            <h1 className="font-bold p-2 text-3xl ">{userProfile.name}</h1>
+            <div className="rounded-3xl border p-2 bg-gray-300 mb-10">
+              {currentUser ? (
+                <img
+                  className="w-140 h-140 rounded-full border "
+                  src={`https://res.cloudinary.com/dshcawt4j/image/upload/v1593119998/${currentUser.profilePicture}.png`}
+                  alt="user"
+                />
+              ) : (
+                <img src="http://placekitten.com/200/300" alt="cats" />
+              )}
+            </div>
+            {/* <img
+              className="h-40 w-40 object-cover rounded-full"
+              src={avatarIcon}
+              alt="profileplacholder"
+            /> */}
 
-          {/* <div className='mt-10 flex flex-col justify-center items-center'>
+            {/* <div className='mt-10 flex flex-col justify-center items-center'>
             <h2 className='font-bold underline underline-offset-4'>
               {' '}
               User bio{' '}
             </h2>
             <h3>{msg}</h3>
           </div> */}
+          </div>
         </div>
       </div>
-          </div>
       {/* <div className='bg-gray-100 rounded-xl mb-3 mx-5 p-5 flex flex-col items-center shadow-lg'>
         <h1 className='font-bold text-center underline underline-offset-8 mb-3'>
           {' '}
@@ -90,45 +101,47 @@ export default function User({ currentUser }) {
         </h1>
       </div> */}
 
-      {allUserPictures}
       <div className={modalToggle ? 'blur ' : null}>
-      <div className='grid grid-cols-3'>
-        <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
-          <PhotographIcon className='m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44' />
+        <div className="rounded-3xl">
+          <div className="grid grid-cols-3">
+            {allUserPictures}
+            {/* <div className="bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg">
+            <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44" />
+            </div>
+            
+            <div className="bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg">
+            <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44" />
+            </div>
+            
+            <div className="bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg">
+            <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44" />
+            </div>
+            
+            <div className="bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg">
+            <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44" />
+            </div>
+            
+            <div className="bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg">
+            <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44" />
+            </div>
+            
+            <div className="bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg">
+          <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44" />
+          </div>
+          
+          <div className="bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg">
+          <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44" />
+          </div>
+          
+          <div className="bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg">
+          <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44" />
+          </div>
+          
+          <div className="bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg">
+          <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44" />
+        </div> */}
+          </div>
         </div>
-
-        <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
-          <PhotographIcon className='m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44' />
-        </div>
-
-        <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
-          <PhotographIcon className='m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44' />
-        </div>
-
-        <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
-          <PhotographIcon className='m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44' />
-        </div>
-
-        <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
-          <PhotographIcon className='m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44' />
-        </div>
-
-        <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
-          <PhotographIcon className='m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44' />
-        </div>
-
-        <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
-          <PhotographIcon className='m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44' />
-        </div>
-
-        <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
-          <PhotographIcon className='m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44' />
-        </div>
-
-        <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
-          <PhotographIcon className='m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44' />
-        </div>
-      </div>
       </div>
     </div>
   )

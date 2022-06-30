@@ -44,7 +44,7 @@ export default function Users({ currentUser }) {
 
   return (
     <div className="">
-      <div className=" h-screen border text-4xl grid grid-cols-4  gap-4 justify-center ">
+      <div className="  border text-4xl grid grid-cols-4  gap-4 justify-center ">
         {allUsers}
       </div>
     </div>

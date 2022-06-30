@@ -8,7 +8,7 @@ export default function UserDisplay({ user: { name, pictures }, user }) {
 
   return (
     <div className="">
-      <div className=" hover:scale-125 font-serif hover:text-red-500 ">
+      <div className="items-center hover:scale-125 font-serif hover:text-red-500 ">
         <h1 className=" text-center mx-28 p-5">{name}!</h1>
         <div className=" border-black items-center border bg-gray-100 flex justify-center rounded-3xl p-2 mx-10">
           <img
