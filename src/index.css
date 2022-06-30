@@ -9,6 +9,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  object-fit: fill;
+  width:100%
   
        /* overflow: hidden */
        /* Hide scrollbars  */

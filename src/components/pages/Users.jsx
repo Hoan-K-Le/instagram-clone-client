@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import UserDisplay from '../UserDisplay'
+
 // display of the users
 const serverUrl = `${process.env.REACT_APP_SERVER_URL}`
 
@@ -22,18 +23,23 @@ export default function Users() {
   }, [])
 
   const allUsers = users.map(user => {
+    const { pictures } = user
+
     return (
-      <li key={user._id}>
-        <Link to={`/users/${user._id}`}>
-          <UserDisplay user={user} />
-        </Link>
-      </li>
+      <React.Fragment key={user._id}>
+        {pictures.length !== 0 ? (
+          <div key={user._id}>
+            <Link to={`/users/${user._id}`}>
+              <UserDisplay user={user} />
+            </Link>
+          </div>
+        ) : null}
+      </React.Fragment>
     )
   })
 
   return (
-    <div>
-      <h1>hello</h1>
+    <div className='border text-4xl grid grid-cols-4  gap-4 justify-center '>
       {allUsers}
     </div>
   )

@@ -7,44 +7,68 @@ export default function FileUploadForm({
   modalToggle,
   setModalToggle,
   userId,
+  userProfile,
+  setUserProfile,
 }) {
   const [formImg, setFormImg] = useState(null)
-  const [title, setTitle] = useState('')
+  const [caption, setCaption] = useState('')
   const [msg, setMsg] = useState('')
   const [image, setImage] = useState('')
 
+  // submits the picture and updates the state
   const handleSubmit = async e => {
     e.preventDefault()
-    formSubmit()
+    try {
+      finalPicSubmit()
+      const res = await axios.get(`${serverUrl}/api-v1/users/${userId}`)
+      setUserProfile(res.data)
+      setModalToggle(!modalToggle)
+    } catch (err) {
+      console.warn()
+    }
   }
 
+  // the final submit, which will update the caption of the picture
+  const finalPicSubmit = async () => {
+    const newestPicture = userProfile.pictures[userProfile.pictures.length - 1]
+    try {
+      await axios.put(`${serverUrl}/api-v1/pictures/${newestPicture._id}`, {
+        caption,
+      })
+    } catch (err) {
+      console.warn(err)
+    }
+  }
+
+  // sets the image as soon as it is uploaded
   const picInputChange = async e => {
     console.log('changed')
     setFormImg(e.target.files[0])
-
-    // setImage(someImg)
-    // inputRef.current.submit()
   }
 
+  // this form submit uploads the picture to the cloud
   const formSubmit = async () => {
     try {
       // multipart form data object
       const formData = new FormData()
       formData.append('image', formImg)
-      formData.append('title', title)
+      // formData.append('caption', caption)
       const res = await axios.post(
         `${serverUrl}/api-v1/users/${userId}/pictures`,
         formData
       )
+      const userRes = await axios.get(`${serverUrl}/api-v1/users/${userId}`)
+      setUserProfile(userRes.data)
       setImage(res.data.cloudImage)
       setFormImg(null)
-      // console.log(res.data)
+      // console.log(formData.values())
     } catch (err) {
       console.warn(err)
       setMsg('Check Server Error')
     }
   }
 
+  // immediate upload to cloud as soon as the user chooses a picture to upload
   if (formImg) {
     formSubmit()
   }
@@ -55,8 +79,9 @@ export default function FileUploadForm({
       <input
         className='rounded-md px-2 py-1'
         type='text'
-        onChange={e => setTitle(e.target.value)}
-        value={title}
+        name='caption'
+        onChange={e => setCaption(e.target.value)}
+        value={caption}
         placeholder='Caption it...'
       />
     </div>
@@ -100,11 +125,13 @@ export default function FileUploadForm({
 
             <div className='mb-2 mx-2'>{image && imageContainer}</div>
 
+            {/* picture upload form */}
             <div className='flex items-center justify-center border-none'>
               <form>
                 <input
                   id='image'
                   type='file'
+                  name='image'
                   className='hidden'
                   onChange={picInputChange}
                   encType='multipart/form-data'
@@ -132,6 +159,7 @@ export default function FileUploadForm({
                 </label>
               </form>
             </div>
+            {/* end of picture upload form */}
 
             <div className='flex flex-row-reverse items-center p-6 space-x-2 rounded-b dark:border-gray-600'>
               <button

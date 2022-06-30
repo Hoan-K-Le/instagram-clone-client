@@ -2,14 +2,35 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import FileUploadForm from '../FileUploadForm'
 import { MailIcon, PhotographIcon } from '@heroicons/react/outline'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function Profile({
-  currentUser: { name, email, _id },
+  currentUser: { name, email, id },
+  setCurrentUser,
   handleLogout,
 }) {
   // state for the secret message for user priv data
+  const [userProfile, setUserProfile] = useState({
+    pictures: [],
+  })
   const [msg, setMsg] = useState('')
   const [modalToggle, setModalToggle] = useState(false)
+  const navigate = useNavigate()
+
+  const serverUrl = process.env.REACT_APP_SERVER_URL
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const res = await axios.get(`${serverUrl}/api-v1/users/${id}`)
+        setUserProfile(res.data)
+      } catch (err) {
+        console.warn()
+      }
+    }
+    fetchUser()
+    // eslint-disable-next-line
+  }, [id])
 
   // useEffect for getting the user data and checking auth
   useEffect(() => {
@@ -43,11 +64,66 @@ export default function Profile({
     fetchData()
   })
 
+  const handleDelete = async e => {
+    e.preventDefault()
+    try {
+      deleteProfile()
+      handleLogout()
+      setCurrentUser(null)
+      navigate('/register')
+    } catch (err) {
+      console.warn('watch out its an error', err)
+    }
+  }
+
+  const deleteProfile = async () => {
+    try {
+      console.log(id)
+      await axios.delete(`${serverUrl}/api-v1/users/${id}`)
+    } catch (err) {
+      console.warn('watchoutitsanerror', err)
+    }
+  }
+
+  const handleDeletePost = async picId => {
+    try {
+      deletePost(picId)
+      const res = await axios.get(`${serverUrl}/api-v1/users/${id}`)
+      setUserProfile(res.data)
+    } catch (err) {
+      console.warn(err)
+    }
+  }
+
+  const deletePost = async picId => {
+    try {
+      await axios.delete(`${serverUrl}/api-v1/pictures/${picId}`)
+    } catch (err) {
+      console.warn(err)
+    }
+  }
+
   const modalButton = (
     <button onClick={() => setModalToggle(!modalToggle)}>
       Upload a picture
     </button>
   )
+
+  // https://res.cloudinary.com/demo/image/upload/w_70,h_53,c_scale/turtles.jpg
+
+  const allUserPictures = userProfile.pictures.map(picture => {
+    const { cloudId, caption, _id } = picture
+    return (
+      <div key={_id}>
+        <img
+          src={`https://res.cloudinary.com/dshcawt4j/image/upload/w_310,h_200,c_scale/${cloudId}.png`}
+          alt={cloudId}
+        />
+        <p>{caption}</p>
+        <button onClick={() => handleDeletePost(_id)}>Delete Picture</button>
+      </div>
+    )
+  })
 
   return (
     <div>
@@ -88,16 +164,24 @@ export default function Profile({
               {' '}
               User bio{' '}
             </h2>
+            <button onClick={handleDelete}>Delete Profile</button>
             <h3>{msg}</h3>
           </div>
         </div>
+        <button onClick={handleDelete}>Delete Profile</button>
+        <Link to={`/profile/${id}`}>
+          <button>Edit Profile</button>
+        </Link>
+        {/* <button onClick={handleDelete}>Delete Profile</button> */}
       </div>
 
       {modalToggle ? (
         <FileUploadForm
           modalToggle={modalToggle}
           setModalToggle={setModalToggle}
-          userId={_id}
+          userId={id}
+          userProfile={userProfile}
+          setUserProfile={setUserProfile}
         />
       ) : null}
 
@@ -109,6 +193,7 @@ export default function Profile({
       </div>
 
       {modalButton}
+      {allUserPictures}
 
       <div className='grid grid-cols-3'>
         <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>

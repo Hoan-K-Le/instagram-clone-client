@@ -9,6 +9,7 @@ import Welcome from './components/pages/Welcome'
 import Navbar from './components/Navbar'
 import User from './components/pages/User'
 import Users from './components/pages/Users'
+import ProfileEditForm from './components/pages/ProfileEditForm'
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
@@ -79,6 +80,16 @@ function App() {
           element={<User currentUser={currentUser} />}
         />
         <Route exact path='/users' element={<Users />} />
+        <Route
+          exact
+          path='/profile/:id'
+          element={
+            <ProfileEditForm
+              setCurrentUser={setCurrentUser}
+              currentUser={currentUser}
+            />
+          }
+        />
       </Routes>
     </div>
   )

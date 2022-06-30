@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import Comment from './Comment'
+import Profile from './pages/Profile'
 
 export default function PictureModal({
   picture,
@@ -37,10 +38,9 @@ export default function PictureModal({
 
   const handleDelete = async commentId => {
     try {
-      console.log('this is before the delete')
+      //   console.log('this is before the delete')
       deleteComment(commentId)
       const userRes = await axios.get(`${serverUrl}/api-v1/users/${userId}`)
-
       setUserProfile(userRes.data)
     } catch (err) {
       console.warn(err)
@@ -67,10 +67,14 @@ export default function PictureModal({
           serverUrl={serverUrl}
           userId={userId}
           setUserProfile={setUserProfile}
+          // handleDeletePicture={handleDeletePicture}
+          picture={picture}
         />
+        <Profile userId={userId} />
       </div>
     )
   })
+
   return (
     <div
       id='medium-modal'
@@ -107,7 +111,10 @@ export default function PictureModal({
           </div>
 
           <div className='p-6 space-y-6'>
-            <img src='http://placekitten.com/200/300' alt='placeholder' />
+            <img
+              src={`https://res.cloudinary.com/dshcawt4j/image/upload/v1593119998/${picture.cloudId}.png`}
+              alt='placeholder'
+            />
             {/* make all comments in its own scrolling containter */}
             {allComments}
             <form onSubmit={handleCommentSubmit}>
@@ -144,6 +151,9 @@ export default function PictureModal({
             >
               Decline
             </button>
+            {/* <button onClick={() => handleDeletePicture(picture._id)}>
+              Delete Post
+            </button> */}
           </div>
         </div>
       </div>
