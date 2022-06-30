@@ -126,7 +126,7 @@ export default function Profile({
   })
 
   return (
-    <div>
+    <div className='bg'>
       <div className='h-fit mt-10 bg-white flex flex-col justify-center items-center'>
         <div className='bg-gray-100 rounded-xl mb-5 border-gray-300 w-200 p-10 flex flex-col items-center shadow-lg'>
           <h1 className='font-bold'>Hello, {name}</h1>
