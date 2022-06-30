@@ -19,6 +19,13 @@ export default function Navbar({ currentUser, handleLogout }) {
           className='relative text-white focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-white-600 dark:hover:bg-white-700 dark:focus:ring-white-800'
           type='button'
         >
+
+          <img
+            className='w-12 h-12 rounded-full border'
+            src='http://placekitten.com/200/300'
+            alt='user photo'
+          />{' '}
+
           {currentUser ? (
             currentUser.profilePicture ? (
               <img
@@ -34,8 +41,14 @@ export default function Navbar({ currentUser, handleLogout }) {
               />
             )
           ) : (
+<<<<<<< HEAD
             <div>Loading...</div>
           )}
+=======
+            <img src='http://placekitten.com/200/300' alt='cats' />
+          )}{' '}
+
+>>>>>>> 47610dc65366b411af532a36b5037087c3c7bf58
         </button>
 
         <div
