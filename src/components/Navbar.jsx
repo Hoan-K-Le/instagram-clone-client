@@ -172,7 +172,7 @@ export default function Navbar({ currentUser, handleLogout }) {
           id='dropdown'
           className={
             toggleDrop
-              ? `z-10 bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700 absolute mt-5  top-20 right-10 `
+              ? `z-10 bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700 absolute mt-8  top-10 right-8 `
               : `hidden z-10 bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700 absolute top-20`
           }
         >
@@ -208,7 +208,3 @@ export default function Navbar({ currentUser, handleLogout }) {
   )
   return <React.Fragment>{currentUser ? loggedIn : null}</React.Fragment>
 }
-
-
-
-

@@ -63,6 +63,7 @@ export default function User({ currentUser }) {
 
   return (
     <div>
+      <div className={modalToggle ? 'blur ' : null}>
       <div className='h-fit mt-10 bg-white flex flex-col justify-center items-center'>
         <div className='bg-gray-100 rounded-xl mb-5 border-gray-300 w-200 p-10 flex flex-col items-center shadow-lg'>
           <h1 className='font-bold'>{userProfile.name}</h1>
@@ -81,7 +82,7 @@ export default function User({ currentUser }) {
           </div> */}
         </div>
       </div>
-
+          </div>
       {/* <div className='bg-gray-100 rounded-xl mb-3 mx-5 p-5 flex flex-col items-center shadow-lg'>
         <h1 className='font-bold text-center underline underline-offset-8 mb-3'>
           {' '}
@@ -90,7 +91,7 @@ export default function User({ currentUser }) {
       </div> */}
 
       {allUserPictures}
-
+      <div className={modalToggle ? 'blur ' : null}>
       <div className='grid grid-cols-3'>
         <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
           <PhotographIcon className='m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44' />
@@ -127,6 +128,7 @@ export default function User({ currentUser }) {
         <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
           <PhotographIcon className='m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44' />
         </div>
+      </div>
       </div>
     </div>
   )
