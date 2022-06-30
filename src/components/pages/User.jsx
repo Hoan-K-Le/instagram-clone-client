@@ -62,33 +62,33 @@ export default function User({ currentUser }) {
   })
 
   return (
-    <div className=" h-screen border overflow-hidden">
-      <div className={modalToggle ? 'blur' : null}>
-        <div className="mt-10 justify-center items-center">
-          <div className="flex-col flex items-center  p-2">
-            <h1 className="font-bold p-3 text-3xl ">{userProfile.name}</h1>
-            <div className="rounded-3xl  mb-10">
-              {currentUser ? (
-                currentUser.profilePicture ? (
-                  <img
-                    className="w-140 h-140 rounded-3xl border p-2 "
-                    src={`https://res.cloudinary.com/dshcawt4j/image/upload/v1593119998/${currentUser.profilePicture}.png`}
-                    alt="user"
-                  />
-                ) : (
-                  <img
-                    className="w-140 h-140 rounded-3xl border  border-black shadow-3xl p-10 bg-slate-100"
-                    src="http://placekitten.com/200/300"
-                    alt="cats"
-                  />
-                )
+    // <div className=" h-screen border overflow-hidden">
+    <div className={modalToggle ? 'blur' : null}>
+      <div className="mt-10 justify-center items-center">
+        <div className="flex-col flex items-center  p-2">
+          <h1 className="font-bold p-3 text-3xl ">{userProfile.name}</h1>
+          <div className="rounded-3xl  mb-10">
+            {currentUser ? (
+              currentUser.profilePicture ? (
+                <img
+                  className="w-140 h-140 rounded-3xl border p-2 "
+                  src={`https://res.cloudinary.com/dshcawt4j/image/upload/v1593119998/${currentUser.profilePicture}.png`}
+                  alt="user"
+                />
               ) : (
-                <div>Loading...</div>
-              )}
-            </div>
+                <img
+                  className="w-140 h-140 rounded-3xl border  border-black shadow-3xl p-10 bg-slate-100"
+                  src="http://placekitten.com/200/300"
+                  alt="cats"
+                />
+              )
+            ) : (
+              <div>Loading...</div>
+            )}
           </div>
         </div>
       </div>
+      {/* </div> */}
       {/* <div className={modalToggle ? 'blur ' : null}> */}
       <div className="grid grid-cols-3  border-black mx-28 rounded-3xl ">
         {allUserPictures}
