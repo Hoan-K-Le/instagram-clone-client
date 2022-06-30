@@ -81,8 +81,14 @@ function App() {
         />
         <Route exact path='/users' element={<Users />} />
         <Route
+          exact
           path='/profile/:id'
-          element={<ProfileEditForm setCurrentUser={setCurrentUser} currentUser={currentUser} />}
+          element={
+            <ProfileEditForm
+              setCurrentUser={setCurrentUser}
+              currentUser={currentUser}
+            />
+          }
         />
       </Routes>
     </div>

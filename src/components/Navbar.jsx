@@ -22,7 +22,7 @@ export default function Navbar({ currentUser, handleLogout }) {
   return (
     <React.Fragment>
       {currentUser ? (
-        <nav className='bg-white   text-white border-gray-200 px-2 sm:px-10 py-2.5  dark:bg-gray-800'>
+        <nav className='bg-white text-white border-gray-200 px-2 sm:px-10 py-2.5  dark:bg-gray-800'>
           <div className='container flex flex-wrap justify-evenly items-center mx-auto'>
             <Link to='/'>User App</Link>
             <Link to='/'>

@@ -7,9 +7,6 @@ import { useNavigate } from 'react-router-dom'
 
 // controlled form in that the user can choose what to edit
 
-import React, { useState } from 'react'
-import axios from 'axios'
-
 const serverUrl = process.env.REACT_APP_SERVER_URL
 
 export default function ProfileEditForm({
@@ -32,7 +29,6 @@ export default function ProfileEditForm({
       const decoded = jwt_decode(token)
       setCurrentUser(decoded)
       navigate('/profile')
-      // const res = axios.get(`${serverUrl}/api-v1/users/${id}`)
       console.log('DID IT WORK? IDK')
     } catch (err) {
       console.warn('watch out its an error for edit form', err)
@@ -101,7 +97,9 @@ export default function ProfileEditForm({
       </div>
 
       <a href='/profile'>
-        <button>Cancel</button>
+        <button className='bg-purple-300 rounded-lg text-base text-white font-bold p-2'>
+          Cancel
+        </button>
       </a>
     </div>
   )

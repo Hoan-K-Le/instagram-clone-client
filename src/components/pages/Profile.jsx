@@ -75,12 +75,31 @@ export default function Profile({
       console.warn('watch out its an error', err)
     }
   }
+
   const deleteProfile = async () => {
     try {
       console.log(id)
       await axios.delete(`${serverUrl}/api-v1/users/${id}`)
     } catch (err) {
       console.warn('watchoutitsanerror', err)
+    }
+  }
+
+  const handleDeletePost = async picId => {
+    try {
+      deletePost(picId)
+      const res = await axios.get(`${serverUrl}/api-v1/users/${id}`)
+      setUserProfile(res.data)
+    } catch (err) {
+      console.warn(err)
+    }
+  }
+
+  const deletePost = async picId => {
+    try {
+      await axios.delete(`${serverUrl}/api-v1/pictures/${picId}`)
+    } catch (err) {
+      console.warn(err)
     }
   }
 
@@ -101,46 +120,47 @@ export default function Profile({
           alt={cloudId}
         />
         <p>{caption}</p>
+        <button onClick={() => handleDeletePost(_id)}>Delete Picture</button>
       </div>
     )
   })
 
   return (
     <div>
-      <div className="h-fit mt-10 bg-white flex flex-col justify-center items-center">
-        <div className="bg-gray-100 rounded-xl mb-5 border-gray-300 w-200 p-10 flex flex-col items-center shadow-lg">
-          <h1 className="font-bold">Hello, {name}</h1>
+      <div className='h-fit mt-10 bg-white flex flex-col justify-center items-center'>
+        <div className='bg-gray-100 rounded-xl mb-5 border-gray-300 w-200 p-10 flex flex-col items-center shadow-lg'>
+          <h1 className='font-bold'>Hello, {name}</h1>
 
-          <form className="flex items-center space-x-8">
-            <div className="shrink-0">
+          <form className='flex items-center space-x-8'>
+            <div className='shrink-0'>
               <img
-                className="h-40 w-40 object-cover rounded-full"
-                src="avataricon.png"
-                alt="profileplacholder"
+                className='h-40 w-40 object-cover rounded-full'
+                src='avataricon.png'
+                alt='profileplacholder'
               />
             </div>
             <input
-              id="profilePic"
-              type="file"
-              accept=".png, .jpg, .jpeg"
-              className="hidden block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-300"
+              id='profilePic'
+              type='file'
+              accept='.png, .jpg, .jpeg'
+              className='hidden block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-300'
             />
-            <label htmlFor="profilePic">Upload a Profile Picture</label>
+            <label htmlFor='profilePic'>Upload a Profile Picture</label>
           </form>
 
-          <table className="border-gray-300">
+          <table className='border-gray-300'>
             <tbody>
               <tr>
-                <td className="p-2 border-gray-300">
-                  <MailIcon className="h-6 w-6 text-purple-500" />
+                <td className='p-2 border-gray-300'>
+                  <MailIcon className='h-6 w-6 text-purple-500' />
                 </td>
-                <td className="p-2 border-grey-300 font-bold">{email}</td>
+                <td className='p-2 border-grey-300 font-bold'>{email}</td>
               </tr>
             </tbody>
           </table>
 
-          <div className="mt-10 flex flex-col justify-center items-center">
-            <h2 className="font-bold underline underline-offset-4">
+          <div className='mt-10 flex flex-col justify-center items-center'>
+            <h2 className='font-bold underline underline-offset-4'>
               {' '}
               User bio{' '}
             </h2>
@@ -165,8 +185,8 @@ export default function Profile({
         />
       ) : null}
 
-      <div className="bg-gray-100 rounded-xl mb-3 mx-5 p-5 flex flex-col items-center shadow-lg">
-        <h1 className="font-bold text-center underline underline-offset-8 mb-3">
+      <div className='bg-gray-100 rounded-xl mb-3 mx-5 p-5 flex flex-col items-center shadow-lg'>
+        <h1 className='font-bold text-center underline underline-offset-8 mb-3'>
           {' '}
           Your Posts{' '}
         </h1>
@@ -175,41 +195,41 @@ export default function Profile({
       {modalButton}
       {allUserPictures}
 
-      <div className="grid grid-cols-3">
-        <div className="bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg">
-          <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44" />
+      <div className='grid grid-cols-3'>
+        <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
+          <PhotographIcon className='m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44' />
         </div>
 
-        <div className="bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg">
-          <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44" />
+        <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
+          <PhotographIcon className='m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44' />
         </div>
 
-        <div className="bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg">
-          <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44" />
+        <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
+          <PhotographIcon className='m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44' />
         </div>
 
-        <div className="bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg">
-          <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44" />
+        <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
+          <PhotographIcon className='m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44' />
         </div>
 
-        <div className="bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg">
-          <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44" />
+        <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
+          <PhotographIcon className='m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44' />
         </div>
 
-        <div className="bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg">
-          <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44" />
+        <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
+          <PhotographIcon className='m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44' />
         </div>
 
-        <div className="bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg">
-          <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44" />
+        <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
+          <PhotographIcon className='m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44' />
         </div>
 
-        <div className="bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg">
-          <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44" />
+        <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
+          <PhotographIcon className='m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44' />
         </div>
 
-        <div className="bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg">
-          <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44" />
+        <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
+          <PhotographIcon className='m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44' />
         </div>
       </div>
     </div>
