@@ -161,18 +161,30 @@ export default function Navbar({ currentUser, handleLogout }) {
           className='relative text-white focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-white-600 dark:hover:bg-white-700 dark:focus:ring-white-800'
           type='button'
         >
+
           <img
             className='w-12 h-12 rounded-full border'
             src='http://placekitten.com/200/300'
             alt='user photo'
           />{' '}
+
+          {currentUser ? (
+            <img
+              className='w-12 h-12 rounded-full border'
+              src={`https://res.cloudinary.com/dshcawt4j/image/upload/v1593119998/${currentUser.profilePicture}.png`}
+              alt='user'
+            />
+          ) : (
+            <img src='http://placekitten.com/200/300' alt='cats' />
+          )}{' '}
+
         </button>
 
         <div
           id='dropdown'
           className={
             toggleDrop
-              ? `z-10 bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700 absolute mt-8  top-10 right-8 `
+              ? `z-10 bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700 absolute mt-8 top-10 right-8 `
               : `hidden z-10 bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700 absolute top-20`
           }
         >
