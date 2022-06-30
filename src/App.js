@@ -1,6 +1,6 @@
 import jwt_decode from 'jwt-decode'
 import { Navigate } from 'react-router-dom'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Login from './components/pages/Login'
 import Profile from './components/pages/Profile'
@@ -13,6 +13,7 @@ import ProfileEditForm from './components/pages/ProfileEditForm'
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
+  const navigate = useNavigate()
 
   // useEffect -- if the user navigates away fro the page, we will log them back in
   useEffect(() => {
@@ -33,6 +34,7 @@ function App() {
     if (localStorage.getItem('jwt')) {
       localStorage.removeItem('jwt')
       setCurrentUser(null)
+      navigate('/')
     }
   }
   return (

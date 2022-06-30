@@ -8,13 +8,18 @@
 // needs a comment form
 // inline edit input for editing the comment
 
-import React from 'react'
+import { useState } from 'react'
+import PictureModal from './PictureModal'
 
 export default function PictureDetails({
   picture: { cloudId, caption },
-  modalToggle,
-  setModalToggle,
+  userProfile,
+  picture,
+  userId,
+  setUserProfile,
+  currentUser,
 }) {
+  const [modalToggle, setModalToggle] = useState(false)
   return (
     <div onClick={() => setModalToggle(!modalToggle)}>
       <img
@@ -22,6 +27,17 @@ export default function PictureDetails({
         alt='cloudId'
       />
       <p>{caption}</p>
+      {modalToggle ? (
+        <PictureModal
+          setModalToggle={setModalToggle}
+          modalToggle={modalToggle}
+          name={userProfile.name}
+          picture={picture}
+          currentUser={currentUser}
+          userId={userId}
+          setUserProfile={setUserProfile}
+        />
+      ) : null}
     </div>
   )
 }

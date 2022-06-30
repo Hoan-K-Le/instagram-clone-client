@@ -8,7 +8,7 @@ import { PhotographIcon } from '@heroicons/react/outline'
 import { useParams } from 'react-router-dom'
 import avatarIcon from '../../images/avataricon.png'
 import PictureDetails from '../PictureDetails'
-import PictureModal from '../PictureModal'
+
 // blur out bg when modal
 export default function User({ currentUser }) {
   // state for the secret message for user priv data
@@ -16,7 +16,6 @@ export default function User({ currentUser }) {
     pictures: [],
   })
   // const [pictures, setPictures] = useState([])
-  const [modalToggle, setModalToggle] = useState(false)
   const { id } = useParams()
 
   const serverUrl = process.env.REACT_APP_SERVER_URL
@@ -41,22 +40,11 @@ export default function User({ currentUser }) {
     return (
       <div key={picture._id}>
         <PictureDetails
-          setModalToggle={setModalToggle}
-          modalToggle={modalToggle}
           picture={picture}
+          currentUser={currentUser}
+          userProfile={userProfile}
+          userId={id}
         />
-        {modalToggle ? (
-          <PictureModal
-            setModalToggle={setModalToggle}
-            modalToggle={modalToggle}
-            name={userProfile.name}
-            picture={picture}
-            currentUser={currentUser}
-            userId={id}
-            setUserProfile={setUserProfile}
-            // setPictures={setPictures}
-          />
-        ) : null}
       </div>
     )
   })

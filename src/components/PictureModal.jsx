@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import Comment from './Comment'
-import Profile from './pages/Profile'
 
 export default function PictureModal({
   picture,
@@ -27,6 +26,7 @@ export default function PictureModal({
         commentFormData
       )
       const userRes = await axios.get(`${serverUrl}/api-v1/users/${userId}`)
+
       setUserProfile(userRes.data)
 
       setCommentFormData({ ...commentFormData, content: '' })
@@ -70,7 +70,6 @@ export default function PictureModal({
           // handleDeletePicture={handleDeletePicture}
           picture={picture}
         />
-        <Profile userId={userId} />
       </div>
     )
   })
