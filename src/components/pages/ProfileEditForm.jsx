@@ -2,6 +2,7 @@ import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { SaveIcon } from '@heroicons/react/outline'
 
 // displays all of the user's detail to be edited via form
 
@@ -37,7 +38,7 @@ export default function ProfileEditForm({
 
   return (
     <div className='h-screen bg-gray-100 flex flex-col justify-center items-center'>
-      <div className='mb-3 relative rounded-xl shadow-lg border-gray-300 w-80 pt-8 pb-5 flex flex-col items-center bg-gray-200'>
+      <div className='mb-6 relative rounded-xl shadow-lg border-gray-300 w-80 pt-6 pb-5 flex flex-col items-center bg-gray-200'>
         <h2 className='font-bold underline underline-offset-8 text-sky-900'>
           Edit Your Profile
         </h2>
@@ -85,19 +86,25 @@ export default function ProfileEditForm({
             value={form.password}
             onChange={e => setForm({ ...form, password: e.target.value })} />
 
+          <div className='flex justify-center'>
           <button
             type='submit'
-            className='bg-purple-300 rounded-lg text-base text-white font-bold p-2'
-          >
-            Submit Changes
+            className='transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-green-500 duration-300 flex gap-x-3 row-reverse bg-purple-400 rounded-lg text-base text-white font-bold p-2 mt-2'>
+            Submit Changes <SaveIcon className='h-5 w-5 text-white'/>
           </button>
+          </div>
         </form>
+
+        <div className='flex justify-center'>
+          <a href='/profile'>
+            <button className='transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-orange-500 duration-300 flex row-reverse bg-red-500 rounded-lg text-base text-white font-bold p-2'>
+              Cancel
+            </button>
+          </a>
+        </div>
+
       </div>
-      <a href='/profile'>
-        <button className='bg-purple-300 rounded-lg text-base text-white font-bold p-2'>
-          Cancel
-        </button>
-      </a>
+
     </div>
   )
 }

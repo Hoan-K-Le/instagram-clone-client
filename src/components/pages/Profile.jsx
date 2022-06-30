@@ -132,11 +132,9 @@ export default function Profile({
   }
 
   const modalButton = (
-  <div className='flex justify-center'>
-    <button className='bg-purple-300 rounded-lg p-3 font-bold text-white' onClick={() => setModalToggle(!modalToggle)}>
-      Upload a picture
+    <button className='flex gap-x-3 row-reverse bg-purple-300 rounded-lg p-3 font-bold text-white' onClick={() => setModalToggle(!modalToggle)}>
+      Upload a picture <PhotographIcon className='h-5 w-5 text-white' />
     </button>
-  </div>
   )
 
   if (formImg) {
@@ -165,7 +163,7 @@ export default function Profile({
     <div>
       <div className='h-fit mt-10 bg-white flex flex-col justify-center items-center'>
         <div className='bg-gray-100 rounded-xl mb-5 border-gray-300 w-200 p-10 flex flex-col items-center shadow-lg'>
-          <div className='bg-gray-400 mb-3 rounded-lg'>
+          <div className='bg-gray-200 mb-3 rounded-lg'>
             <h1 className='font-bold p-3'>Hello, {name}</h1>
           </div>
           
@@ -208,9 +206,9 @@ export default function Profile({
           <h2 className='font-bold underline underline-offset-4'>Profile Options</h2>
           <div className='mt-3 grid grid-cols-2'>
             <Link to={`/profile/${id}`}>
-              <button className='bg-green-500 p-2 rounded-lg font-bold text-white' >Edit Profile</button>
+              <button className='bg-green-500 p-2 rounded-lg font-bold text-white'>Edit Profile</button>
             </Link>
-              <button className='bg-red-500 p-2 rounded-lg font-bold text-white' onClick={handleDelete}>Delete Profile</button>
+              <button className='bg-red-500 p-2 rounded-lg font-bold text-white' onClick={handleDelete}>Delete Profile </button>
           </div>
         </div>
       </div>
