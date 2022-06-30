@@ -58,9 +58,9 @@ export default function Login({ currentUser, setCurrentUser }) {
         muted
         className="fixed overflow-hidden max-w-[2400px] "
       ></video>
-      <div className="max-w-4xl mx-auto w-full overflow-hidden  bg-gray-100 flex flex-col justify-center min-h-full object-fill items-center h-screen">
-        <div className=" bg-gray-100 flex flex-col justify-center items-center ">
-          <div className=" mb-3 relative border-gray-300 w-80 pt-8 pb-5 flex flex-col items-center bg-gray-200">
+      <div className="max-w-4xl mx-auto  w-full overflow-hidden  bg-gray-100 flex flex-col justify-center min-h-full object-fill items-center h-screen">
+        <div className=" bg-gray-100  flex flex-col justify-center items-center rounded-3xl ">
+          <div className=" rounded-3xl mb-3 relative border-gray-300 w-80 pt-8 pb-5 flex flex-col items-center bg-gray-200">
             <img width="250" src={image} alt="pic" />
 
             <p>{msg}</p>

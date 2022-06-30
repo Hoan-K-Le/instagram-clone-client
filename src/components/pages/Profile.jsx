@@ -192,6 +192,7 @@ export default function Profile({
         </div>
         {modalButton}
         {allUserPictures}
+
         <div className="grid grid-cols-3">
           <div className="bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg">
             <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44" />

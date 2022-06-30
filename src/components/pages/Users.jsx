@@ -39,8 +39,10 @@ export default function Users() {
   })
 
   return (
-    <div className='border text-4xl grid grid-cols-4  gap-4 justify-center '>
-      {allUsers}
+    <div className="bg-slate-300">
+      <div className=" bg-slate-300 h-screen border text-4xl grid grid-cols-4  gap-4 justify-center ">
+        {allUsers}
+      </div>
     </div>
   )
 }
