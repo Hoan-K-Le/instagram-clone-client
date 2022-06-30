@@ -72,23 +72,10 @@ export default function User({ currentUser }) {
             src={avatarIcon}
             alt='profileplacholder'
           />
-
-          {/* <div className='mt-10 flex flex-col justify-center items-center'>
-            <h2 className='font-bold underline underline-offset-4'>
-              {' '}
-              User bio{' '}
-            </h2>
-            <h3>{msg}</h3>
-          </div> */}
         </div>
       </div>
-          </div>
-      {/* <div className='bg-gray-100 rounded-xl mb-3 mx-5 p-5 flex flex-col items-center shadow-lg'>
-        <h1 className='font-bold text-center underline underline-offset-8 mb-3'>
-          {' '}
-          Your Posts{' '}
-        </h1>
-      </div> */}
+    </div>
+
 
       {allUserPictures}
       <div className={modalToggle ? 'blur ' : null}>

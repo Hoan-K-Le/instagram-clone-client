@@ -132,9 +132,11 @@ export default function Profile({
   }
 
   const modalButton = (
-    <button onClick={() => setModalToggle(!modalToggle)}>
+  <div className='flex justify-center'>
+    <button className='bg-purple-300 rounded-lg p-3 font-bold text-white' onClick={() => setModalToggle(!modalToggle)}>
       Upload a picture
     </button>
+  </div>
   )
 
   if (formImg) {
@@ -146,6 +148,7 @@ export default function Profile({
   const allUserPictures = userProfile.pictures.map(picture => {
     const { cloudId, caption, _id } = picture
     return (
+    <div>
       <div key={_id}>
         <img
           src={`https://res.cloudinary.com/dshcawt4j/image/upload/w_310,h_200,c_scale/${cloudId}.png`}
@@ -154,6 +157,7 @@ export default function Profile({
         <p>{caption}</p>
         <button onClick={() => handleDeletePost(_id)}>Delete Picture</button>
       </div>
+    </div>
     )
   })
 
@@ -161,10 +165,13 @@ export default function Profile({
     <div>
       <div className='h-fit mt-10 bg-white flex flex-col justify-center items-center'>
         <div className='bg-gray-100 rounded-xl mb-5 border-gray-300 w-200 p-10 flex flex-col items-center shadow-lg'>
-          <h1 className='font-bold'>Hello, {name}</h1>
+          <div className='bg-gray-400 mb-3 rounded-lg'>
+            <h1 className='font-bold p-3'>Hello, {name}</h1>
+          </div>
+          
 
           {/* profile image form */}
-          <form onSubmit={formSubmit} className='flex items-center space-x-8'>
+          <form onSubmit={formSubmit} className='flex items-center space-x-6'>
             <div className='shrink-0'>
               <img
                 className='h-40 w-40 object-cover rounded-full'
@@ -183,35 +190,29 @@ export default function Profile({
               onChange={picInputChange}
               className='hidden block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-300'
             />
-            <label htmlFor='profilePic'>Upload a Profile Picture</label>
+            <label className='font-bold' htmlFor='profilePic'>Upload a Profile Picture</label>
           </form>
           {/* end of profile image form */}
 
-          <table className='border-gray-300'>
+          <table className='mt-3 border-gray-300'>
             <tbody>
               <tr>
                 <td className='p-2 border-gray-300'>
                   <MailIcon className='h-6 w-6 text-purple-500' />
                 </td>
-                <td className='p-2 border-grey-300 font-bold'>{email}</td>
+                <td className='p-2 border-grey-300 font-bold'>Your Email Address: {email}</td>
               </tr>
             </tbody>
           </table>
 
-          <div className='mt-10 flex flex-col justify-center items-center'>
-            <h2 className='font-bold underline underline-offset-4'>
-              {' '}
-              User bio{' '}
-            </h2>
-            <button onClick={handleDelete}>Delete Profile</button>
-            <h3>{msg}</h3>
+          <h2 className='font-bold underline underline-offset-4'>Profile Options</h2>
+          <div className='mt-3 grid grid-cols-2'>
+            <Link to={`/profile/${id}`}>
+              <button className='bg-green-500 p-2 rounded-lg font-bold text-white' >Edit Profile</button>
+            </Link>
+              <button className='bg-red-500 p-2 rounded-lg font-bold text-white' onClick={handleDelete}>Delete Profile</button>
           </div>
         </div>
-        <button onClick={handleDelete}>Delete Profile</button>
-        <Link to={`/profile/${id}`}>
-          <button>Edit Profile</button>
-        </Link>
-        {/* <button onClick={handleDelete}>Delete Profile</button> */}
       </div>
 
       {modalToggle ? (
@@ -229,12 +230,13 @@ export default function Profile({
           {' '}
           Your Posts{' '}
         </h1>
+        {modalButton}
       </div>
 
-      {modalButton}
+      
       {allUserPictures}
 
-      <div className='grid grid-cols-3'>
+      {/* <div className='grid grid-cols-3'>
         <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
           <PhotographIcon className='m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44' />
         </div>
@@ -270,7 +272,7 @@ export default function Profile({
         <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
           <PhotographIcon className='m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44' />
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }
