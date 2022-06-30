@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import FileUploadForm from '../FileUploadForm'
-import { MailIcon, PhotographIcon } from '@heroicons/react/outline'
+import { MailIcon, PhotographIcon, UserGroupIcon } from '@heroicons/react/outline'
 import { Link, useNavigate } from 'react-router-dom'
+import User from './User'
 
 export default function Profile({
   currentUser: { name, email, id },
@@ -146,14 +147,14 @@ export default function Profile({
   const allUserPictures = userProfile.pictures.map(picture => {
     const { cloudId, caption, _id } = picture
     return (
-    <div>
-      <div key={_id}>
-        <img
-          src={`https://res.cloudinary.com/dshcawt4j/image/upload/w_310,h_200,c_scale/${cloudId}.png`}
+    <div className='flex'>
+      <div className='bg-gray-100 m-5 rounded-xl shadow-lg' key={_id}>
+        <img className='pt-8 px-8 pb-2'
+          src={`https://res.cloudinary.com/dshcawt4j/image/upload/w_400,h_250,c_scale/${cloudId}.png`}
           alt={cloudId}
         />
-        <p>{caption}</p>
-        <button onClick={() => handleDeletePost(_id)}>Delete Picture</button>
+        <p className='text-center font-bold'>{caption}</p>
+        <button className='ml-80 bg-red-500 p-2 rounded-lg mb-3 font-bold text-white hover:-translate-y-0.5 hover:scale-110 hover:bg-orange-400 duration-300' onClick={() => handleDeletePost(_id)}>Delete Picture</button>
       </div>
     </div>
     )
@@ -163,12 +164,10 @@ export default function Profile({
     <div>
       <div className='h-fit mt-10 bg-white flex flex-col justify-center items-center'>
         <div className='bg-gray-100 rounded-xl mb-5 border-gray-300 w-200 p-10 flex flex-col items-center shadow-lg'>
-          <div className='bg-gray-200 mb-3 rounded-lg'>
-            <h1 className='font-bold text-white p-3 px-20 dark:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg'>Hello, {name}</h1>
+          <div className='bg-gray-100 mb-3 rounded-lg'>
+            <h1 className='animate-bounce font-bold p-3 px-20 rounded-lg'>Hello, {name}</h1>
           </div>
-          
-
-          {/* profile image form */}
+      
           <form onSubmit={formSubmit} className='flex items-center space-x-6'>
             <div className='shrink-0'>
               <img
@@ -230,10 +229,11 @@ export default function Profile({
           </div>
         </div>
       </div>
-      
 
-      
+      <div className='grid grid-cols-3'>
       {allUserPictures}
+      </div>
+    
 
       {/* <div className='grid grid-cols-3'>
         <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
