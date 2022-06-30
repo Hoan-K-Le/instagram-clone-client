@@ -32,7 +32,7 @@ export default function Login({ currentUser, setCurrentUser }) {
       const { token } = res.data
       localStorage.setItem('jwt', token)
       // decode the token
-      const decoded = jwt_decode(token)``
+      const decoded = jwt_decode(token)
       // set the user in App's state to be the decoded token
       setCurrentUser(decoded)
     } catch (err) {
@@ -56,11 +56,11 @@ export default function Login({ currentUser, setCurrentUser }) {
         autoPlay
         loop
         muted
-        className="fixed overflow-hidden max-w-[2400px]"
+        className="fixed overflow-hidden max-w-[2400px] "
       ></video>
-      <div className="overflow-hidden bg-gray-100 flex flex-col justify-center items-center">
-        <div className=" bg-gray-100 flex flex-col justify-center items-center h-screen">
-          <div className=" mb-3 relative border-gray-300 w-80 pt-8 pb-5 flex flex-col items-center bg-gray-200 rounded-3xl">
+      <div className="max-w-4xl mx-auto w-full overflow-hidden  bg-gray-100 flex flex-col justify-center min-h-full object-fill items-center h-screen">
+        <div className=" bg-gray-100 flex flex-col justify-center items-center ">
+          <div className=" mb-3 relative border-gray-300 w-80 pt-8 pb-5 flex flex-col items-center bg-gray-200">
             <img width="250" src={image} alt="pic" />
 
             <p>{msg}</p>
@@ -71,7 +71,7 @@ export default function Login({ currentUser, setCurrentUser }) {
             >
               {/* <label htmlFor="email">Email: </label> */}
               <input
-                className="w-full rounded border bg-gray-100 p-2 text-xs font-bold text-center "
+                className="w-full rounded border bg-gray-100 p-2 text-xs font-bold text-center"
                 type="email"
                 id="email"
                 placeholder="Email"
@@ -93,9 +93,8 @@ export default function Login({ currentUser, setCurrentUser }) {
                 onClick={e => pressShow(e)}
                 className="relative left-20 bottom-8 focus:text-gray-500 text-sm font-semibold mx-24 px-8 hover:animate-pulse"
               >
-                {showPassword ? 'Hide' : 'Show'}
+                show
               </button>
-
               <button
                 className="mt-2 text-sm text-center bg-blue-500 text-white py-1 rounded font-medium hover:animate-pulse"
                 type="submit"

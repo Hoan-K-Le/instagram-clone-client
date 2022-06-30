@@ -4,7 +4,9 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 // displays all of the user's detail to be edited via form
 // controlled form in that the user can choose what to edit
+
 const serverUrl = process.env.REACT_APP_SERVER_URL
+
 export default function ProfileEditForm({
   currentUser: { name, email, password, id },
   setCurrentUser,
@@ -24,7 +26,6 @@ export default function ProfileEditForm({
       const decoded = jwt_decode(token)
       setCurrentUser(decoded)
       navigate('/profile')
-      // const res = axios.get(`${serverUrl}/api-v1/users/${id}`)
       console.log('DID IT WORK? IDK')
     } catch (err) {
       console.warn('watch out its an error for edit form', err)
@@ -38,7 +39,7 @@ export default function ProfileEditForm({
         </h2>
         <form
           onSubmit={editFormSubmit}
-          className="w-64 flex flex-col gap-1 mt-5 bg-gray-200"
+          className="w-64 flex flex-col gap-2 mt-5 mb-5 bg-gray-200"
         >
           <label
             htmlFor="name"
@@ -53,6 +54,7 @@ export default function ProfileEditForm({
             value={form.name}
             onChange={e => setForm({ ...form, name: e.target.value })}
           />
+
           <label
             htmlFor="email"
             className="text-center text-sky-900 font-semi-bold"
@@ -66,6 +68,7 @@ export default function ProfileEditForm({
             value={form.email}
             onChange={e => setForm({ ...form, email: e.target.value })}
           />
+
           <label
             htmlFor="password"
             className="text-center text-sky-900 font-semi-bold"
@@ -79,6 +82,7 @@ export default function ProfileEditForm({
             value={form.password}
             onChange={e => setForm({ ...form, password: e.target.value })}
           />
+
           <button
             type="submit"
             className="bg-purple-300 rounded-lg text-base text-white font-bold p-2"
@@ -90,6 +94,12 @@ export default function ProfileEditForm({
           <button>Cancel</button>
         </a>
       </div>
+
+      <a href="/profile">
+        <button className="bg-purple-300 rounded-lg text-base text-white font-bold p-2">
+          Cancel
+        </button>
+      </a>
     </div>
   )
 }

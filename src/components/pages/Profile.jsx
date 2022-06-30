@@ -75,12 +75,31 @@ export default function Profile({
       console.warn('watch out its an error', err)
     }
   }
+
   const deleteProfile = async () => {
     try {
       console.log(id)
       await axios.delete(`${serverUrl}/api-v1/users/${id}`)
     } catch (err) {
       console.warn('watchoutitsanerror', err)
+    }
+  }
+
+  const handleDeletePost = async picId => {
+    try {
+      deletePost(picId)
+      const res = await axios.get(`${serverUrl}/api-v1/users/${id}`)
+      setUserProfile(res.data)
+    } catch (err) {
+      console.warn(err)
+    }
+  }
+
+  const deletePost = async picId => {
+    try {
+      await axios.delete(`${serverUrl}/api-v1/pictures/${picId}`)
+    } catch (err) {
+      console.warn(err)
     }
   }
 
@@ -101,13 +120,13 @@ export default function Profile({
           alt={cloudId}
         />
         <p>{caption}</p>
+        <button onClick={() => handleDeletePost(_id)}>Delete Picture</button>
       </div>
     )
   })
 
   return (
     <div>
-      <div className="bg-gray-800"></div>
       {modalToggle ? (
         <FileUploadForm
           modalToggle={modalToggle}
@@ -118,6 +137,7 @@ export default function Profile({
         />
       ) : null}
       <div className={modalToggle ? 'blur ' : null}>
+        >
         <div className="h-fit mt-10 bg-white flex flex-col justify-center items-center">
           <div className="bg-gray-100 rounded-xl mb-5 border-gray-300 w-200 p-10 flex flex-col items-center shadow-lg">
             <h1 className="font-bold">Hello, {name}</h1>
@@ -139,18 +159,16 @@ export default function Profile({
               <label htmlFor="profilePic">Upload a Profile Picture</label>
             </form>
 
-            <div>
-              <table className="border-gray-300">
-                <tbody>
-                  <tr>
-                    <td className="p-2 border-gray-300">
-                      <MailIcon className="h-6 w-6 text-purple-500" />
-                    </td>
-                    <td className="p-2 border-grey-300 font-bold">{email}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <table className="border-gray-300">
+              <tbody>
+                <tr>
+                  <td className="p-2 border-gray-300">
+                    <MailIcon className="h-6 w-6 text-purple-500" />
+                  </td>
+                  <td className="p-2 border-grey-300 font-bold">{email}</td>
+                </tr>
+              </tbody>
+            </table>
 
             <div className="mt-10 flex flex-col justify-center items-center">
               <h2 className="font-bold underline underline-offset-4">
@@ -167,17 +185,14 @@ export default function Profile({
           </Link>
           {/* <button onClick={handleDelete}>Delete Profile</button> */}
         </div>
-
         <div className="bg-gray-100 rounded-xl mb-3 mx-5 p-5 flex flex-col items-center shadow-lg">
           <h1 className="font-bold text-center underline underline-offset-8 mb-3">
             {' '}
             Your Posts{' '}
           </h1>
         </div>
-
         {modalButton}
         {allUserPictures}
-
         <div className="grid grid-cols-3">
           <div className="bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg">
             <PhotographIcon className="m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44" />
