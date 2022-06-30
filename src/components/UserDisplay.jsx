@@ -6,6 +6,9 @@ export default function UserDisplay({ user: { name, pictures }, user }) {
   //change content to caption after wiping DB
   const mostRecentPic = pictures[pictures.length - 1]
 
+
+
+
   return (
     <div className=" ">
       <div className=" relative items-center hover:scale-125 font-sans hover:text-red-500 ">
@@ -17,7 +20,9 @@ export default function UserDisplay({ user: { name, pictures }, user }) {
             alt="place"
           />
         </div>
+
       </div>
     </div>
-  )
+  </div>
+)
 }

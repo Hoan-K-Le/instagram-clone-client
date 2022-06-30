@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import FileUploadForm from '../FileUploadForm'
-import { MailIcon, PhotographIcon } from '@heroicons/react/outline'
+import { MailIcon, PhotographIcon, PencilAltIcon, TrashIcon } from '@heroicons/react/outline'
 import { Link, useNavigate } from 'react-router-dom'
 
 export default function Profile({
@@ -133,8 +133,8 @@ export default function Profile({
   }
 
   const modalButton = (
-    <button onClick={() => setModalToggle(!modalToggle)}>
-      Upload a picture
+    <button className='shadow-lg transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-0.5 hover:scale-110 hover:bg-pink-400 duration-300 flex gap-x-3 row-reverse bg-purple-400 rounded-lg p-3 font-bold text-white mt-2' onClick={() => setModalToggle(!modalToggle)}>
+      Upload a picture <PhotographIcon className='h-5 w-5 text-white' />
     </button>
   )
 
@@ -147,19 +147,23 @@ export default function Profile({
   const allUserPictures = userProfile.pictures.map(picture => {
     const { cloudId, caption, _id } = picture
     return (
-      <div key={_id}>
-        <img
-          src={`https://res.cloudinary.com/dshcawt4j/image/upload/w_310,h_200,c_scale/${cloudId}.png`}
+    <div className='flex'>
+      <div className='bg-gray-100 m-5 rounded-xl shadow-lg' key={_id}>
+        <img className='pt-8 px-8 pb-2'
+          src={`https://res.cloudinary.com/dshcawt4j/image/upload/w_400,h_250,c_scale/${cloudId}.png`}
           alt={cloudId}
         />
-        <p>{caption}</p>
-        <button onClick={() => handleDeletePost(_id)}>Delete Picture</button>
+        <p className='text-center font-bold'>{caption}</p>
+        <button className='mt-3 ml-56 flex gap-x-2 row-reverse bg-red-500 p-2 rounded-lg mb-3 font-bold text-white hover:-translate-y-0.5 hover:scale-110 hover:bg-orange-400 duration-300' onClick={() => handleDeletePost(_id)}>
+          Delete Picture <TrashIcon className='h-5 w-5 text-white'/></button>
       </div>
+    </div>
     )
   })
 
   return (
     <div>
+
 
       {currentUser ? (
         <div>
@@ -283,6 +287,7 @@ export default function Profile({
       ) : (
         <div>Loading...</div>
       )}
+
     </div>
   )
 }

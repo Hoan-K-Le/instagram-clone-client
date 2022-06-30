@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import image from '../images/picitupfinal.png'
 import { useState } from 'react'
 
-import { UserGroupIcon, BeakerIcon } from '@heroicons/react/outline'
 export default function Navbar({ currentUser, handleLogout }) {
   const [toggleDrop, setToggleDrop] = useState(false)
   const logOutAndCloseNav = () => {
@@ -11,6 +10,7 @@ export default function Navbar({ currentUser, handleLogout }) {
     handleLogout()
 
   }
+
   const loggedIn = (
     <React.Fragment>
       <div className='mx-auto bg-gray-800 font-arial pt-1 pb-3 flex flex-wrap justify-between items-center m-0 w-screen px-5'>
@@ -26,7 +26,6 @@ export default function Navbar({ currentUser, handleLogout }) {
         >
 
 
-
 {currentUser ? (
             currentUser.profilePicture ? (
               <img
@@ -40,11 +39,12 @@ export default function Navbar({ currentUser, handleLogout }) {
                 src="http://placekitten.com/200/300"
                 alt="cats"
 
-             
+
             )
           ) : (
             <div>Loading...</div>
           )}
+
 
         </button>
 
@@ -72,8 +72,10 @@ export default function Navbar({ currentUser, handleLogout }) {
             <li>
               <a
 
+
                 href='/users'
                 className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-500 dark:hover:text-violet-400'
+
 
               >
                 All Users
@@ -90,6 +92,7 @@ export default function Navbar({ currentUser, handleLogout }) {
                 Logout
               </span> */}
 
+
             </li>
           </ul>
         </div>
@@ -98,6 +101,7 @@ export default function Navbar({ currentUser, handleLogout }) {
   )
   return <React.Fragment>{currentUser ? loggedIn : null}</React.Fragment>
 }
+
 
 
 //        -------------     BREAK GLASS IN CASE OF EMERGENCY     ------------
@@ -247,4 +251,5 @@ export default function Navbar({ currentUser, handleLogout }) {
 // }
 
 ///////////////////////////////////////////////
+
 
