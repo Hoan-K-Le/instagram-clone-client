@@ -128,13 +128,13 @@ export default function Profile({
             <label htmlFor="profilePic">Upload a Profile Picture</label>
           </form>
 
-          <table className="border-gray-300">
+          <table className="border-gray-300 mt-5">
             <tbody>
               <tr>
                 <td className="p-2 border-gray-300">
                   <MailIcon className="h-6 w-6 text-purple-500" />
                 </td>
-                <td className="p-2 border-grey-300 font-bold">{email}</td>
+                <td className="p-2 border-grey-300 font-bold">Your Email: {email}</td>
               </tr>
             </tbody>
           </table>
