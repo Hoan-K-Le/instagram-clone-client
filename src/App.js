@@ -12,16 +12,16 @@ import Users from './components/pages/Users'
 import ProfileEditForm from './components/pages/ProfileEditForm'
 
 // darkmode 
-import {createContext} from 'react'
-import ReactSwitch from 'react-switch'
-export const ThemeContext = createContext(null)
+// import {createContext} from 'react'
+// import ReactSwitch from 'react-switch'
+// export const ThemeContext = createContext(null)
 
 function App() {
 // darkmode
-const [theme, setTheme] = useState('light')
-const toggleTheme = () => {
-  setTheme((curr) => (curr === 'light' ? 'dark' : 'light'))
-}
+// const [theme, setTheme] = useState('light')
+// const toggleTheme = () => {
+//   setTheme((curr) => (curr === 'light' ? 'dark' : 'light'))
+// }
 
 
 
@@ -51,12 +51,14 @@ const toggleTheme = () => {
   return (
     // darkmode
 
-      <ThemeContext.Provider value={{ theme, toggleTheme}}>
-    <div className='' id={theme}>
+      // <ThemeContext.Provider value={{ theme, toggleTheme}}>
+    // <div className='' id={theme}>
+      <div>
+
       <header>
         {/* darkmode */}
-        <label>{theme === 'light' ? 'Light Mode' : 'Dark Mode'}</label>
-        <ReactSwitch onChange={toggleTheme} checked={theme === 'dark'}/>
+        {/* <label>{theme === 'light' ? 'Light Mode' : 'Dark Mode'}</label> */}
+        {/* <ReactSwitch onChange={toggleTheme} checked={theme === 'dark'}/> */}
         <Navbar currentUser={currentUser} handleLogout={handleLogout} />
 
       </header>
@@ -96,11 +98,15 @@ const toggleTheme = () => {
               />
         <Route
         
+        exact
+        path='/users/:id'
+        element={<User currentUser={currentUser} />}
+        />
+        <Route
           exact
-          path='/users/:id'
-          element={<User currentUser={currentUser} />}
+          path='/users'
+          element={<Users currentUser={currentUser} />}
           />
-        <Route exact path='/users' element={<Users />} />
         <Route
           exact
           path='/profile/:id'
@@ -114,9 +120,11 @@ const toggleTheme = () => {
       </Routes>
 
     </div>
-          </ThemeContext.Provider>
+    // </div>
+          // </ThemeContext.Provider>
          
-  )
-}
-
-export default App
+         )
+        }
+        
+        export default App
+        
