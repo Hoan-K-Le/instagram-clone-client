@@ -8,15 +8,14 @@ import { PhotographIcon } from '@heroicons/react/outline'
 import { useParams } from 'react-router-dom'
 import avatarIcon from '../../images/avataricon.png'
 import PictureDetails from '../PictureDetails'
-import PictureModal from '../PictureModal'
+
 // blur out bg when modal
 export default function User({ currentUser }) {
   // state for the secret message for user priv data
   const [userProfile, setUserProfile] = useState({
     pictures: [],
   })
-  // const [pictures, setPictures] = useState([])
-  const [modalToggle, setModalToggle] = useState(false)
+  const [blurToggle, setBlurToggle] = useState(false)
   const { id } = useParams()
 
   const serverUrl = process.env.REACT_APP_SERVER_URL
@@ -41,27 +40,19 @@ export default function User({ currentUser }) {
     return (
       <div key={picture._id}>
         <PictureDetails
-          setModalToggle={setModalToggle}
-          modalToggle={modalToggle}
+          blurToggle={blurToggle}
+          setBlurToggle={setBlurToggle}
           picture={picture}
+          currentUser={currentUser}
+          userProfile={userProfile}
+          userId={id}
         />
-        {modalToggle ? (
-          <PictureModal
-            setModalToggle={setModalToggle}
-            modalToggle={modalToggle}
-            name={userProfile.name}
-            picture={picture}
-            currentUser={currentUser}
-            userId={id}
-            setUserProfile={setUserProfile}
-            // setPictures={setPictures}
-          />
-        ) : null}
       </div>
     )
   })
 
   return (
+
     <div>
       <div className={modalToggle ? 'blur ' : null}>
       <div className='h-fit mt-10 bg-white flex flex-col justify-center items-center'>
@@ -114,9 +105,11 @@ export default function User({ currentUser }) {
 
         <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
           <PhotographIcon className='m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44' />
+
         </div>
       </div>
-      </div>
+  </div>
+   
     </div>
   )
 }
