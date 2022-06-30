@@ -60,7 +60,7 @@ export default function Login({ currentUser, setCurrentUser }) {
       ></video>
       <div className="overflow-hidden bg-gray-100 flex flex-col justify-center items-center">
         <div className=" bg-gray-100 flex flex-col justify-center items-center h-screen">
-          <div className=" mb-3 relative border-gray-300 w-80 pt-8 pb-5 flex flex-col items-center bg-gray-200">
+          <div className=" mb-3 relative border-gray-300 w-80 pt-8 pb-5 flex flex-col items-center bg-gray-200 rounded-3xl">
             <img width="250" src={image} alt="pic" />
 
             <p>{msg}</p>
