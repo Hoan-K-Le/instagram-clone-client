@@ -30,16 +30,17 @@ export default function Navbar({ currentUser, handleLogout }) {
 {currentUser ? (
             currentUser.profilePicture ? (
               <img
-                className='w-12 h-12 rounded-full border'
+                className="w-12 h-12 rounded-full border"
                 src={`https://res.cloudinary.com/dshcawt4j/image/upload/v1593119998/${currentUser.profilePicture}.png`}
-                alt='user'
+                alt="user"
               />
             ) : (
               <img
-                className='w-12 h-12 rounded-full border'
-                src='http://placekitten.com/200/300'
-                alt='cats'
-              />
+                className="w-12 h-12 rounded-full border"
+                src="http://placekitten.com/200/300"
+                alt="cats"
+
+             
             )
           ) : (
             <div>Loading...</div>
@@ -48,33 +49,37 @@ export default function Navbar({ currentUser, handleLogout }) {
         </button>
 
         <div
-          id='dropdown'
+          id="dropdown"
           className={
             toggleDrop
               ? `z-10 bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700 absolute mt-8 top-10 right-8 `
-              : `hidden z-10 bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700 absolute top-20`
+              : `hidden`
           }
         >
           <ul
-            className='py-1 text-sm text-gray-700 dark:text-gray-200'
-            aria-labelledby='dropdownDefault'
+            className="py-1 text-sm text-gray-700 dark:text-gray-200"
+            aria-labelledby="dropdownDefault"
           >
             <li>
               <a
-                href='/profile'
-                className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-500 dark:hover:text-violet-400'
+                href="/profile"
+                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+
               >
                 Profile
               </a>
             </li>
             <li>
               <a
+
                 href='/users'
                 className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-500 dark:hover:text-violet-400'
+
               >
                 All Users
               </a>
             </li>
+
             <li  className='hover:cursor-pointer '>
               
             <Link to='/' >
@@ -84,6 +89,7 @@ export default function Navbar({ currentUser, handleLogout }) {
               {/* <span className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'>
                 Logout
               </span> */}
+
             </li>
           </ul>
         </div>
@@ -92,6 +98,7 @@ export default function Navbar({ currentUser, handleLogout }) {
   )
   return <React.Fragment>{currentUser ? loggedIn : null}</React.Fragment>
 }
+
 
 //        -------------     BREAK GLASS IN CASE OF EMERGENCY     ------------
 //  if you have any problems with the above code or simply want a more traditional navbar, see code below
@@ -240,3 +247,4 @@ export default function Navbar({ currentUser, handleLogout }) {
 // }
 
 ///////////////////////////////////////////////
+
