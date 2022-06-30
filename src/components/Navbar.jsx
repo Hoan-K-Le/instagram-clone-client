@@ -22,6 +22,7 @@ export default function Navbar({ currentUser, handleLogout }) {
           {currentUser ? (
             currentUser.profilePicture ? (
               <img
+
                 className="w-12 h-12 rounded-full border"
                 src={`https://res.cloudinary.com/dshcawt4j/image/upload/v1593119998/${currentUser.profilePicture}.png`}
                 alt="user"
@@ -31,6 +32,17 @@ export default function Navbar({ currentUser, handleLogout }) {
                 className="w-12 h-12 rounded-full border"
                 src="http://placekitten.com/200/300"
                 alt="cats"
+
+                className='w-12 h-12 rounded-full border'
+                src={`https://res.cloudinary.com/dshcawt4j/image/upload/v1593119998/${currentUser.profilePicture}.png`}
+                alt='user'
+              />
+            ) : (
+              <img
+                className='w-12 h-12 rounded-full border'
+                src='http://placekitten.com/200/300'
+                alt='cats'
+
               />
             )
           ) : (
@@ -43,7 +55,7 @@ export default function Navbar({ currentUser, handleLogout }) {
           className={
             toggleDrop
               ? `z-10 bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700 absolute mt-8 top-10 right-8 `
-              : `hidden z-10 bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700 absolute top-20`
+              : `hidden`
           }
         >
           <ul
