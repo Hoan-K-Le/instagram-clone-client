@@ -6,7 +6,7 @@ import UserDisplay from '../UserDisplay'
 // display of the users
 const serverUrl = `${process.env.REACT_APP_SERVER_URL}`
 
-export default function Users() {
+export default function Users({ currentUser }) {
   const [users, setUsers] = useState([])
 
   useEffect(() => {
@@ -27,11 +27,15 @@ export default function Users() {
 
     return (
       <React.Fragment key={user._id}>
-        {pictures.length !== 0 ? (
-          <div key={user._id}>
-            <Link to={`/users/${user._id}`}>
-              <UserDisplay user={user} />
-            </Link>
+        {currentUser.id !== user._id ? (
+          <div>
+            {pictures.length !== 0 ? (
+              <div key={user._id}>
+                <Link to={`/users/${user._id}`}>
+                  <UserDisplay user={user} />
+                </Link>
+              </div>
+            ) : null}
           </div>
         ) : null}
       </React.Fragment>
