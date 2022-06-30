@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import image from '../images/picitupfinal.png'
 import { useState } from 'react'
 
-import { UserGroupIcon, BeakerIcon } from '@heroicons/react/outline'
 export default function Navbar({ currentUser, handleLogout }) {
   const [toggleDrop, setToggleDrop] = useState(false)
   const logOutAndCloseNav = () => {
@@ -27,7 +26,7 @@ export default function Navbar({ currentUser, handleLogout }) {
 
 
 
-{currentUser ? (
+          {currentUser ? (
             currentUser.profilePicture ? (
               <img
                 className='w-12 h-12 rounded-full border'
@@ -75,10 +74,8 @@ export default function Navbar({ currentUser, handleLogout }) {
                 All Users
               </a>
             </li>
-            <li  className='hover:cursor-pointer '>
-              
+            <li  className='hover:cursor-pointer'>
             <Link to='/' >
-            <BeakerIcon className="h-5 w-5 text-blue-500 "/>
          <span onClick={logOutAndCloseNav}><p class='font-bold ml-4 pt-2 pb-1 transition duration-500 hover:text-blue-400'>Log Out</p></span>
        </Link>
               {/* <span className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'>
