@@ -132,7 +132,7 @@ export default function Profile({
   }
 
   const modalButton = (
-    <button className='flex gap-x-3 row-reverse bg-purple-300 rounded-lg p-3 font-bold text-white' onClick={() => setModalToggle(!modalToggle)}>
+    <button className='shadow-lg transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-0.5 hover:scale-110 hover:bg-pink-400 duration-300 flex gap-x-3 row-reverse bg-purple-400 rounded-lg p-3 font-bold text-white mt-2' onClick={() => setModalToggle(!modalToggle)}>
       Upload a picture <PhotographIcon className='h-5 w-5 text-white' />
     </button>
   )
@@ -164,7 +164,7 @@ export default function Profile({
       <div className='h-fit mt-10 bg-white flex flex-col justify-center items-center'>
         <div className='bg-gray-100 rounded-xl mb-5 border-gray-300 w-200 p-10 flex flex-col items-center shadow-lg'>
           <div className='bg-gray-200 mb-3 rounded-lg'>
-            <h1 className='font-bold p-3'>Hello, {name}</h1>
+            <h1 className='font-bold text-white p-3 px-20 dark:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg'>Hello, {name}</h1>
           </div>
           
 
@@ -206,9 +206,9 @@ export default function Profile({
           <h2 className='font-bold underline underline-offset-4'>Profile Options</h2>
           <div className='mt-3 grid grid-cols-2'>
             <Link to={`/profile/${id}`}>
-              <button className='bg-green-500 p-2 rounded-lg font-bold text-white'>Edit Profile</button>
+              <button className='shadow-lg transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-blue-500 duration-300 bg-green-500 p-2 rounded-lg font-bold text-white'>Edit Profile</button>
             </Link>
-              <button className='bg-red-500 p-2 rounded-lg font-bold text-white' onClick={handleDelete}>Delete Profile </button>
+              <button className='shadow-lg transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-orange-500 duration-300 bg-red-500 p-2 rounded-lg font-bold text-white' onClick={handleDelete}>Delete Profile </button>
           </div>
         </div>
       </div>
@@ -222,14 +222,15 @@ export default function Profile({
           setUserProfile={setUserProfile}
         />
       ) : null}
-
-      <div className='bg-gray-100 rounded-xl mb-3 mx-5 p-5 flex flex-col items-center shadow-lg'>
-        <h1 className='font-bold text-center underline underline-offset-8 mb-3'>
-          {' '}
-          Your Posts{' '}
-        </h1>
-        {modalButton}
+      <div className='flex flex-col items-center'>
+        <div className='box-content h-40 w-80 justify-center'>
+          <div className='bg-gray-100 rounded-xl mb-3 mx-5 p-5 flex flex-col items-center shadow-lg'>
+            <h1 className='font-bold text-center underline underline-offset-8 mb-3'>Your Posts</h1>
+            {modalButton}
+          </div>
+        </div>
       </div>
+      
 
       
       {allUserPictures}
