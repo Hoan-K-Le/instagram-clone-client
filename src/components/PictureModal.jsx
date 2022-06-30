@@ -26,6 +26,7 @@ export default function PictureModal({
         commentFormData
       )
       const userRes = await axios.get(`${serverUrl}/api-v1/users/${userId}`)
+
       setUserProfile(userRes.data)
 
       setCommentFormData({ ...commentFormData, content: '' })
