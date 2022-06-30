@@ -89,7 +89,7 @@ export default function ProfileEditForm({
           <div className='flex justify-center'>
           <button
             type='submit'
-            className='transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-green-500 duration-300 flex gap-x-3 row-reverse bg-purple-400 rounded-lg text-base text-white font-bold p-2 mt-2'>
+            className='shadow-lg transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-green-500 duration-300 flex gap-x-3 row-reverse bg-purple-400 rounded-lg text-base text-white font-bold p-2 mt-2'>
             Submit Changes <SaveIcon className='h-5 w-5 text-white'/>
           </button>
           </div>
@@ -97,7 +97,7 @@ export default function ProfileEditForm({
 
         <div className='flex justify-center'>
           <a href='/profile'>
-            <button className='transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-orange-500 duration-300 flex row-reverse bg-red-500 rounded-lg text-base text-white font-bold p-2'>
+            <button className='shadow-lg transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-orange-500 duration-300 flex row-reverse bg-red-500 rounded-lg text-base text-white font-bold p-2'>
               Cancel
             </button>
           </a>
