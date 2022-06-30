@@ -15,12 +15,12 @@ export default function PictureDetails({
   modalToggle,
   setModalToggle,
 }) {
-  //change content to caption after wiping DB
-
   return (
     <div onClick={() => setModalToggle(!modalToggle)}>
-      <img src='http://placekitten.com/200/300' alt='placeholder' />
-      <h1>{cloudId}</h1>
+      <img
+        src={`https://res.cloudinary.com/dshcawt4j/image/upload/w_310,h_200,c_scale/${cloudId}.png`}
+        alt='cloudId'
+      />
       <p>{caption}</p>
     </div>
   )

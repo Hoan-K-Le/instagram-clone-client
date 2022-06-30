@@ -29,7 +29,6 @@ export default function ProfileEditForm({
       const decoded = jwt_decode(token)
       setCurrentUser(decoded)
       navigate('/profile')
-      // const res = axios.get(`${serverUrl}/api-v1/users/${id}`)
       console.log('DID IT WORK? IDK')
     } catch (err) {
       console.warn('watch out its an error for edit form', err)
@@ -93,10 +92,12 @@ export default function ProfileEditForm({
             Submit Changes
           </button>
         </form>
-          <a href="/profile">
-            <button>Cancel</button>
-          </a>
       </div>
+      <a href='/profile'>
+        <button className='bg-purple-300 rounded-lg text-base text-white font-bold p-2'>
+          Cancel
+        </button>
+      </a>
     </div>
   )
 }
