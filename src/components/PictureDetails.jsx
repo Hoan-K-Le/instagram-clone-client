@@ -16,12 +16,15 @@ export default function PictureDetails({
   setModalToggle,
 }) {
   return (
-    <div onClick={() => setModalToggle(!modalToggle)}>
-      <img
-        src={`https://res.cloudinary.com/dshcawt4j/image/upload/w_310,h_200,c_scale/${cloudId}.png`}
-        alt='cloudId'
-      />
-      <p>{caption}</p>
-    </div>
+    <>
+      <div onClick={() => setModalToggle(!modalToggle)}>
+        <img
+          className=" border p-5  hover:scale-125 bg-gray-200 shadow-xl"
+          src={`https://res.cloudinary.com/dshcawt4j/image/upload/w_400,h_250,c_scale/${cloudId}.png`}
+          alt="cloudId"
+        />
+        <p>{caption}</p>
+      </div>
+    </>
   )
 }

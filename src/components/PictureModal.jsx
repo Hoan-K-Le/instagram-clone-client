@@ -86,6 +86,7 @@ export default function PictureModal({
               {name}
             </h3>
             {/* Modal close btn */}
+
             <button
               onClick={() => setModalToggle(!modalToggle)}
               type="button"
@@ -149,9 +150,6 @@ export default function PictureModal({
             >
               Decline
             </button>
-            {/* <button onClick={() => handleDeletePicture(picture._id)}>
-              Delete Post
-            </button> */}
           </div>
         </div>
       </div>
