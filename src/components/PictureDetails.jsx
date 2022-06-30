@@ -24,18 +24,6 @@ export default function PictureDetails({
   const [modalToggle, setModalToggle] = useState(false)
 
   return (
-<<<<<<< HEAD
-    <>
-      <div onClick={() => setModalToggle(!modalToggle)}>
-        <img
-          className=" border p-5  hover:scale-125 bg-gray-200 shadow-xl"
-          src={`https://res.cloudinary.com/dshcawt4j/image/upload/w_400,h_250,c_scale/${cloudId}.png`}
-          alt="cloudId"
-        />
-        <p>{caption}</p>
-      </div>
-    </>
-=======
     <div
       onClick={() => {
         setModalToggle(!modalToggle)
@@ -45,7 +33,7 @@ export default function PictureDetails({
       <div className={blurToggle ? 'blur ' : null}>
         <img
           src={`https://res.cloudinary.com/dshcawt4j/image/upload/w_310,h_200,c_scale/${cloudId}.png`}
-          alt='cloudId'
+          alt="cloudId"
         />
         <p>{caption}</p>
       </div>
@@ -62,6 +50,5 @@ export default function PictureDetails({
         />
       ) : null}
     </div>
->>>>>>> 62a694692aa82acaff3088a39537ff703973a9d6
   )
 }

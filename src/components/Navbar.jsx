@@ -22,7 +22,6 @@ export default function Navbar({ currentUser, handleLogout }) {
           {currentUser ? (
             currentUser.profilePicture ? (
               <img
-<<<<<<< HEAD
                 className="w-12 h-12 rounded-full border"
                 src={`https://res.cloudinary.com/dshcawt4j/image/upload/v1593119998/${currentUser.profilePicture}.png`}
                 alt="user"
@@ -32,17 +31,6 @@ export default function Navbar({ currentUser, handleLogout }) {
                 className="w-12 h-12 rounded-full border"
                 src="http://placekitten.com/200/300"
                 alt="cats"
-=======
-                className='w-12 h-12 rounded-full border'
-                src={`https://res.cloudinary.com/dshcawt4j/image/upload/v1593119998/${currentUser.profilePicture}.png`}
-                alt='user'
-              />
-            ) : (
-              <img
-                className='w-12 h-12 rounded-full border'
-                src='http://placekitten.com/200/300'
-                alt='cats'
->>>>>>> 62a694692aa82acaff3088a39537ff703973a9d6
               />
             )
           ) : (
