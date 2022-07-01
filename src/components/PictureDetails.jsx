@@ -24,33 +24,36 @@ export default function PictureDetails({
   const [modalToggle, setModalToggle] = useState(false)
 
   return (
+    <div className=' '>
+      <div className='mt-3 m-10 p-8 shadow-xl bg-gray-100  '>
+        <div className={blurToggle ? 'blur ' : null}>
+          <img
+            onClick={() => {
+              setModalToggle(!modalToggle)
+              setBlurToggle(!blurToggle)
+            }}
+            className='border bg-gray-200 shadow-2xl'
+            src={`https://res.cloudinary.com/dshcawt4j/image/upload/w_450,h_250,c_scale/${cloudId}.png`}
+            alt='cloudId'
+          />
+          <p>{caption}</p>
+        </div>
 
-    <div
-      onClick={() => {
-        setModalToggle(!modalToggle)
-        setBlurToggle(!blurToggle)
-      }}
-    >
-      <div className={blurToggle ? 'blur ' : null}>
-        <img
-          src={`https://res.cloudinary.com/dshcawt4j/image/upload/w_310,h_200,c_scale/${cloudId}.png`}
-          alt='cloudId'
-        />
-        <p>{caption}</p>
+        {modalToggle ? (
+          <PictureModal
+            blurToggle={blurToggle}
+            setBlurToggle={setBlurToggle}
+            setModalToggle={setModalToggle}
+            modalToggle={modalToggle}
+            name={userProfile.name}
+            picture={picture}
+            currentUser={currentUser}
+            userId={userId}
+            userProfile={userProfile}
+            setUserProfile={setUserProfile}
+          />
+        ) : null}
       </div>
-
-      {modalToggle ? (
-        <PictureModal
-          setModalToggle={setModalToggle}
-          modalToggle={modalToggle}
-          name={userProfile.name}
-          picture={picture}
-          currentUser={currentUser}
-          userId={userId}
-          setUserProfile={setUserProfile}
-        />
-      ) : null}
     </div>
-
   )
 }

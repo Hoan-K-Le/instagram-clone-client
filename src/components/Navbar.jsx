@@ -11,7 +11,6 @@ export default function Navbar({ currentUser, handleLogout }) {
   const logOutAndCloseNav = () => {
     setToggleDrop(!toggleDrop)
     handleLogout()
-
   }
   const loggedIn = (
     <React.Fragment>
@@ -27,9 +26,8 @@ export default function Navbar({ currentUser, handleLogout }) {
           type='button'
         >
 
+          {currentUser ? (
 
-
-{currentUser ? (
             currentUser.profilePicture ? (
               <img
                 className='w-12 h-12 rounded-full border'
@@ -64,7 +62,9 @@ export default function Navbar({ currentUser, handleLogout }) {
             <li>
               <a
                 href='/profile'
+
                 className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-500 dark:hover:text-violet-400'
+
               >
                 Profile
               </a>
@@ -77,13 +77,19 @@ export default function Navbar({ currentUser, handleLogout }) {
                 All Users
               </a>
             </li>
-            <li  className='hover:cursor-pointer '>
 
-            <Link to='/' >
 
-         <span onClick={logOutAndCloseNav}><p class='font-bold ml-4 pt-2 pb-1 transition duration-500 hover:text-blue-400'>Log Out</p></span>
-       </Link>
-              
+            <li className='hover:cursor-pointer '>
+              <Link to='/'>
+                <span onClick={logOutAndCloseNav}>
+                  <p className='font-bold ml-4 pt-2 pb-1 transition duration-500 hover:text-blue-400'>
+                    Log Out
+                  </p>
+                </span>
+              </Link>
+              {/* <span className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'>
+                Logout
+              </span> */}
             </li>
           </ul>
         </div>

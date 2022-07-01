@@ -4,9 +4,7 @@
 
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { PhotographIcon } from '@heroicons/react/outline'
 import { useParams } from 'react-router-dom'
-import avatarIcon from '../../images/avataricon.png'
 import PictureDetails from '../PictureDetails'
 
 // blur out bg when modal
@@ -42,6 +40,7 @@ export default function User({ currentUser }) {
         <PictureDetails
           blurToggle={blurToggle}
           setBlurToggle={setBlurToggle}
+          setUserProfile={setUserProfile}
           picture={picture}
           currentUser={currentUser}
           userProfile={userProfile}
@@ -53,62 +52,37 @@ export default function User({ currentUser }) {
 
   return (
 
-    <div>
+    <div className=''>
       <div className={blurToggle ? 'blur ' : null}>
-      <div className='h-fit mt-10 bg-white flex flex-col justify-center items-center'>
-        <div className='bg-gray-100 rounded-xl mb-5 border-gray-300 w-200 p-10 flex flex-col items-center shadow-lg'>
-          <h1 className='font-bold'>{userProfile.name}</h1>
-          <img
-            className='h-40 w-40 object-cover rounded-full'
-            src={avatarIcon}
-            alt='profileplacholder'
-          />
+        <div className=' mt-10 bg-white flex flex-col justify-center items-center '>
+          <div className='bg-gray-100 rounded-xl mb-5 w-200 p-10 flex flex-col items-center shadow-lg'>
+            <h1 className='font-bold text-3xl font-sans'>{userProfile.name}</h1>
+            {userProfile ? (
+              userProfile.profilePicture ? (
+                <img
+                  className='h-40 w-40 object-cover rounded-full'
+                  src={`https://res.cloudinary.com/dshcawt4j/image/upload/v1593119998/${userProfile.profilePicture}.png`}
+                  alt='user'
+                />
+              ) : (
+                <img
+                  className='h-40 w-40 object-cover rounded-full'
+                  src='http://placekitten.com/200/300'
+                  alt='cats'
+                />
+              )
+            ) : (
+              <div>Loading...</div>
+            )}
+          </div>
         </div>
       </div>
-    </div>
-
-
-      {allUserPictures}
-      <div className={blurToggle ? 'blur ' : null}>
-      <div className='grid grid-cols-3'>
-        <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
-          <PhotographIcon className='m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44' />
-        </div>
-
-        <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
-          <PhotographIcon className='m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44' />
-        </div>
-
-        <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
-          <PhotographIcon className='m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44' />
-        </div>
-
-        <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
-          <PhotographIcon className='m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44' />
-        </div>
-
-        <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
-          <PhotographIcon className='m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44' />
-        </div>
-
-        <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
-          <PhotographIcon className='m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44' />
-        </div>
-
-        <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
-          <PhotographIcon className='m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44' />
-        </div>
-
-        <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
-          <PhotographIcon className='m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44' />
-        </div>
-
-        <div className='bg-gray-100 rounded-xl mx-5 my-3 border-gray-300 w-100 p-5 flex flex-col items-center shadow-lg'>
-          <PhotographIcon className='m-auto rounded-lg hover:ring ring-purple-400 object-left-top w-44 h-44' />
-
+      <div className='grid grid-cols-3 '>
+        {allUserPictures}
+        <div className={blurToggle ? 'blur ' : null}>
+          <div className=''></div>
         </div>
       </div>
-  </div>
 
     </div>
   )
