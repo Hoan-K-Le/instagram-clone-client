@@ -1,9 +1,7 @@
 # Pic it Up
 
 Welcome to Pic it Up, where users can post their favorite pictures, comment on them and view other user's photos.
-
 Login and update your profile any time.
-
 Happy scrolling
 
 
@@ -16,17 +14,16 @@ Happy scrolling
 + you will need to use nodemon to consistently restart your app
 + npm i to install dependencies
 
+
 ## Wireframe/ERD
 
 ![](./wireframes/wireframe.png)
 
 ## REST Routes
 
-![](./wireframes/Rest1.png)
-
-![](./wireframes/Rest2.png)
-
-![](./wireframes/Rest3.png)
+![](./wireframes/Login.png)
+![](./wireframes/profile.png)
+![](./wireframes/register.png)
 
 ## User Stories
 
@@ -53,6 +50,7 @@ Happy scrolling
 - Have a community post
 
 
+
 ## Technologies Used
 
 This app was built using mongodb, express, react and node.js.
@@ -65,3 +63,4 @@ We began by planning out the routes and setting up a client side and server side
 ## Hurdles
 
 There were sometimes that fixing one piece of the site would break another.  Working together to smoothe out all the wrinkles was a challenge, especially towards the end.  The final product was well worth the struggle.
+

@@ -24,8 +24,10 @@ export default function PictureDetails({
   const [modalToggle, setModalToggle] = useState(false)
 
   return (
-    <div className=' '>
-      <div className='mt-3 m-10 p-8 shadow-xl bg-gray-100  '>
+
+    <div className=" ">
+      <div className="m-10">
+
         <div className={blurToggle ? 'blur ' : null}>
           <img
             onClick={() => {
@@ -37,6 +39,7 @@ export default function PictureDetails({
             alt='cloudId'
           />
           <p>{caption}</p>
+
         </div>
 
         {modalToggle ? (

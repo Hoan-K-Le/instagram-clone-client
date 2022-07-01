@@ -36,28 +36,31 @@ export default function User({ currentUser }) {
 
   const allUserPictures = userProfile.pictures.map(picture => {
     return (
-      <div key={picture._id}>
-        <PictureDetails
-          blurToggle={blurToggle}
-          setBlurToggle={setBlurToggle}
-          setUserProfile={setUserProfile}
-          picture={picture}
-          currentUser={currentUser}
-          userProfile={userProfile}
-          userId={id}
-        />
+
+      <div key={picture._id} className="flex">
+        <div className="bg-gray-100 m-5 rounded-xl shadow-lg" key={picture._id}>
+          <PictureDetails
+            blurToggle={blurToggle}
+            setBlurToggle={setBlurToggle}
+            picture={picture}
+             setUserProfile={setUserProfile}
+            currentUser={currentUser}
+            userProfile={userProfile}
+            userId={id}
+          />
+        </div>
       </div>
     )
   })
 
   return (
 
-    <div className=''>
+    <div className="">
       <div className={blurToggle ? 'blur ' : null}>
-        <div className=' mt-10 bg-white flex flex-col justify-center items-center '>
-          <div className='bg-gray-100 rounded-xl mb-5 w-200 p-10 flex flex-col items-center shadow-lg'>
-            <h1 className='font-bold text-3xl font-sans'>{userProfile.name}</h1>
-            {userProfile ? (
+        <div className="  bg-white flex flex-col justify-center items-center ">
+          <div className="bg-gray-100 rounded-xl mb-5 w-200 p-10 flex flex-col items-center shadow-lg">
+            <h1 className="font-bold text-3xl font-sans">{userProfile.name}</h1>
+             {userProfile ? (
               userProfile.profilePicture ? (
                 <img
                   className='h-40 w-40 object-cover rounded-full'
@@ -77,6 +80,7 @@ export default function User({ currentUser }) {
           </div>
         </div>
       </div>
+
       <div className='grid grid-cols-3 '>
         {allUserPictures}
         <div className={blurToggle ? 'blur ' : null}>
