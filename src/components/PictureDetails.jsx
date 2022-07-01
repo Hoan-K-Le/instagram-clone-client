@@ -14,9 +14,9 @@ import PictureModal from './PictureModal'
 export default function PictureDetails({
   picture: { cloudId, caption },
   userProfile,
+  setUserProfile,
   picture,
   userId,
-  setUserProfile,
   currentUser,
   blurToggle,
   setBlurToggle,
@@ -24,15 +24,9 @@ export default function PictureDetails({
   const [modalToggle, setModalToggle] = useState(false)
 
   return (
-
-    <div
-      onClick={() => {
-        setModalToggle(!modalToggle)
-        setBlurToggle(!blurToggle)
-      }}
-    >
+    <div>
       <div className={blurToggle ? 'blur ' : null}>
-      <img
+        <img
           onClick={() => {
             setModalToggle(!modalToggle)
             setBlurToggle(!blurToggle)
@@ -58,6 +52,5 @@ export default function PictureDetails({
         />
       ) : null}
     </div>
-
   )
 }
