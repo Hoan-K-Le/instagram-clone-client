@@ -44,6 +44,7 @@ export default function Users({ currentUser }) {
 
   return (
     <div>
+
       {/* <h1 className="text-center text-3xl font-sans p-10">List of Users:</h1> */}
       <div className="min-h-screen px-8 py-16 bg-white">
         <div className="grid gap-8 items-start justify-center">

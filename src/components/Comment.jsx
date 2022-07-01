@@ -2,8 +2,6 @@ import axios from 'axios'
 import { useState } from 'react'
 
 export default function Comment({
-  picture,
-  handleDeletePicture,
   handleDelete,
   comment: {
     user: { name, _id },
@@ -48,7 +46,7 @@ export default function Comment({
       {edit ? (
         <div>
           <input
-            type="text"
+            type='text'
             value={editText.content}
             onChange={e =>
               setEditText({ ...editText, content: e.target.value })

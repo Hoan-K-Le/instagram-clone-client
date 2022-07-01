@@ -24,24 +24,22 @@ export default function PictureDetails({
   const [modalToggle, setModalToggle] = useState(false)
 
   return (
+
     <div className=" ">
       <div className="m-10">
+
         <div className={blurToggle ? 'blur ' : null}>
           <img
             onClick={() => {
               setModalToggle(!modalToggle)
               setBlurToggle(!blurToggle)
             }}
-            className="border bg-gray-200 shadow-2xl"
+            className='border bg-gray-200 shadow-2xl'
             src={`https://res.cloudinary.com/dshcawt4j/image/upload/w_450,h_250,c_scale/${cloudId}.png`}
-            alt="cloudId"
+            alt='cloudId'
           />
+          <p>{caption}</p>
 
-          {currentUser.name ? (
-            <p>
-              {currentUser.name}: {caption}
-            </p>
-          ) : null}
         </div>
 
         {modalToggle ? (
