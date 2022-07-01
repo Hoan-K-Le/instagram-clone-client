@@ -253,7 +253,7 @@ export default function Profile({
       <div className='flex flex-col items-center'>
         <div className='box-content h-40 w-80 justify-center'>
           <div className='bg-gray-100 rounded-xl mx-5 p-5 flex flex-col items-center shadow-lg'>
-            <h1 className='font-bold text-center underline underline-offset-8'>
+            <h1 className='font-bold text-center underline underline-offset-8 mb-2'>
               Your Posts
             </h1>
             {modalButton}
