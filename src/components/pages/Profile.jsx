@@ -164,7 +164,7 @@ export default function Profile({
           />
           <p className='text-center font-bold'>{caption}</p>
           <button
-            className='mt-3 ml-56 flex gap-x-2 row-reverse bg-red-500 p-2 rounded-lg mb-3 font-bold text-white hover:-translate-y-0.5 hover:scale-110 hover:bg-orange-400 duration-300'
+            className='mt-3 ml-64 flex gap-x-2 row-reverse bg-red-500 p-2 rounded-lg mb-3 font-bold text-white hover:-translate-y-0.5 hover:scale-110 hover:bg-orange-400 duration-300'
             onClick={() => handleDeletePost(_id)}
           >
             Delete Picture <TrashIcon className='h-5 w-5 text-white' />
@@ -180,10 +180,11 @@ export default function Profile({
         <div className='bg-gray-100 rounded-xl mb-5 border-gray-300 w-200 p-10 flex flex-col items-center shadow-lg'>
           <div className='bg-gray-100 mb-3 rounded-lg'>
             <h1 className='font-bold p-3 px-20 rounded-lg'>
-              Hello, {name}
+              {name}'s Profile
             </h1>
           </div>
 
+        <div className='bg-gray-300 p-5 rounded-xl'>
           <form onSubmit={formSubmit} className='flex items-center space-x-6'>
             <div className='shrink-0'>
               <img
@@ -203,10 +204,11 @@ export default function Profile({
               onChange={picInputChange}
               className='hidden block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-300'
             />
-            <label className='font-bold' htmlFor='profilePic'>
+            <label className='bg-white p-2 rounded-lg font-bold transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:text-white hover:bg-gray-800 duration-300' htmlFor='profilePic'>
               Upload a Profile Picture
             </label>
           </form>
+          </div>
           {/* end of profile image form */}
 
           <table className='mt-3 border-gray-300'>
@@ -227,12 +229,12 @@ export default function Profile({
           </h2>
           <div className='mt-3 grid grid-cols-2'>
             <Link to={`/profile/${id}`}>
-              <button className='mr-3 flex gap-x-2 row-reverse shadow-lg transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-blue-500 duration-300 bg-green-500 p-2 rounded-lg font-bold text-white'>
+              <button className='mr-3 flex gap-x-2 row-reverse shadow-lg transition bg-green-500 ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-blue-500 duration-300 p-2 rounded-lg font-bold text-white'>
                 Edit Profile <PencilAltIcon className='h-5 w-5 text-white' />{' '}
               </button>
             </Link>
             <button
-              className='ml-2 flex gap-x-2 row-reverse shadow-lg transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-orange-500 duration-300 bg-red-500 p-2 rounded-lg font-bold text-white'
+              className='ml-2 flex gap-x-2 row-reverse shadow-lg transition ease-in-out delay-150 bg-red-500 hover:-translate-y-1 hover:scale-110 hover:bg-orange-400 duration-300 p-2 rounded-lg font-bold text-white'
               onClick={handleDelete}
             >
               Delete Profile <TrashIcon className='h-5 w-5 text-white' />{' '}
