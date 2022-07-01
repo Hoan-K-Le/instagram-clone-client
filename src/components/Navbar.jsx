@@ -74,7 +74,7 @@ export default function Navbar({ currentUser, handleLogout }) {
             <li className='hover:cursor-pointer '>
               <Link to='/'>
                 <span onClick={logOutAndCloseNav}>
-                  <p class='font-bold ml-4 pt-2 pb-1 transition duration-500 hover:text-blue-400'>
+                  <p className='font-bold ml-4 pt-2 pb-1 transition duration-500 hover:text-blue-400'>
                     Log Out
                   </p>
                 </span>

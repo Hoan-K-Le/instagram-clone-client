@@ -14,9 +14,9 @@ import PictureModal from './PictureModal'
 export default function PictureDetails({
   picture: { cloudId, caption },
   userProfile,
+  setUserProfile,
   picture,
   userId,
-  setUserProfile,
   currentUser,
   blurToggle,
   setBlurToggle,
@@ -24,15 +24,13 @@ export default function PictureDetails({
   const [modalToggle, setModalToggle] = useState(false)
 
   return (
-
-    <div
-      onClick={() => {
-        setModalToggle(!modalToggle)
-        setBlurToggle(!blurToggle)
-      }}
-    >
+    <div>
       <div className={blurToggle ? 'blur ' : null}>
         <img
+          onClick={() => {
+            setModalToggle(!modalToggle)
+            setBlurToggle(!blurToggle)
+          }}
           src={`https://res.cloudinary.com/dshcawt4j/image/upload/w_310,h_200,c_scale/${cloudId}.png`}
           alt='cloudId'
         />
@@ -41,16 +39,18 @@ export default function PictureDetails({
 
       {modalToggle ? (
         <PictureModal
+          blurToggle={blurToggle}
+          setBlurToggle={setBlurToggle}
           setModalToggle={setModalToggle}
           modalToggle={modalToggle}
           name={userProfile.name}
           picture={picture}
           currentUser={currentUser}
           userId={userId}
+          userProfile={userProfile}
           setUserProfile={setUserProfile}
         />
       ) : null}
     </div>
-
   )
 }

@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-export default function UserDisplay({ user: { name, pictures }, user }) {
+export default function UserDisplay({ user: { name, pictures } }) {
   //change content to caption after wiping DB
   const mostRecentPic = pictures[pictures.length - 1]
 
