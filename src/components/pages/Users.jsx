@@ -44,7 +44,7 @@ export default function Users({ currentUser }) {
 
   return (
     <div>
-      <div className="  border relative  text-4xl grid grid-cols-4 gap-4 justify-center ">
+      <div className='  border relative  text-4xl grid grid-cols-4 gap-4 justify-center '>
         {allUsers}
       </div>
     </div>
