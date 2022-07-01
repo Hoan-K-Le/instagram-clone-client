@@ -36,12 +36,8 @@ export default function PictureDetails({
             src={`https://res.cloudinary.com/dshcawt4j/image/upload/w_450,h_250,c_scale/${cloudId}.png`}
             alt="cloudId"
           />
-
-        
-            <p>
-              {caption}
-            </p>
-       
+          <p>{caption}</p>
+        </div>
 
         {modalToggle ? (
           <PictureModal
