@@ -7,6 +7,7 @@ export default function UserDisplay({ user: { name, pictures } }) {
   const mostRecentPic = pictures[pictures.length - 1]
 
   return (
+
     <div>
       <div className=' relative items-center hover:scale-125 font-sans hover:text-red-500 '>
         <h1 className=' text-center mx-28 p-5'>{name}!</h1>
@@ -19,5 +20,7 @@ export default function UserDisplay({ user: { name, pictures } }) {
         </div>
       </div>
     </div>
+
   )
+
 }

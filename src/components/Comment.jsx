@@ -3,8 +3,6 @@ import { useState } from 'react'
 import { PencilAltIcon, TrashIcon } from '@heroicons/react/outline'
 
 export default function Comment({
-  picture,
-  handleDeletePicture,
   handleDelete,
   comment: {
     user: { name, _id },
@@ -47,6 +45,7 @@ export default function Comment({
       <h2 className='font-bold text-purple-300'>Comment by: {name}</h2>
       {edit ? (
         <div>
+
           <input className="w-60 rounded border bg-gray-100 p-2 text-xs font-bold text-center"
             type="text"
             value={editText.content}
@@ -62,6 +61,7 @@ export default function Comment({
           <p className='font-bold text-white mt-2 mb-2'>{content}</p>
           </div>
           {currentUser.id === _id ? (
+
             <div className='grid grid-cols-2'>
               <button className='shadow-lg flex gap-x-2 row-reverse bg-red-500 text-white font-bold rounded-lg p-2 ml-10 mr-4 transition ease-in-out delay-150 bg-red-500 hover:-translate-y-1 hover:scale-110 hover:bg-orange-500 duration-300' onClick={() => handleDelete(comment._id)}>
                 Delete Comment <TrashIcon className='h-5 w-5 text-white'/>
