@@ -114,7 +114,8 @@ export default function PictureModal({
           </div>
 
           <div className='p-2 space-y-6'>
-            <img className='px-3 pt-3'
+            <img
+              className='px-3 pt-3'
               src={`https://res.cloudinary.com/dshcawt4j/image/upload/v1593119998/${picture.cloudId}.png`}
               alt='placeholder'
             />
@@ -124,8 +125,11 @@ export default function PictureModal({
           </div>
           <div>
             <form onSubmit={handleCommentSubmit}>
-              <label className='text-white font-bold' htmlFor='comment'>New Comment: </label>
-              <input className="w-60 rounded border bg-gray-100 p-2 text-xs font-bold text-center"
+              <label className='text-white font-bold' htmlFor='comment'>
+                New Comment:{' '}
+              </label>
+              <input
+                className='w-60 rounded border bg-gray-100 p-2 text-xs font-bold text-center'
                 type='text'
                 id='comment'
                 value={commentFormData.content}
@@ -137,12 +141,13 @@ export default function PictureModal({
                 }
               />
 
-              <button className='bg-green-400 text-white font-bold rounded-lg p-2 m-3 shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-blue-400 duration-300'>Submit</button>
+              <button className='bg-green-400 text-white font-bold rounded-lg p-2 m-3 shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-blue-400 duration-300'>
+                Submit
+              </button>
             </form>
           </div>
 
           <div className='flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600'>
-           
             <button
               onClick={() => {
                 setModalToggle(!modalToggle)

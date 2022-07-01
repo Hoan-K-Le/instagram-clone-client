@@ -40,6 +40,7 @@ export default function Profile({
     // eslint-disable-next-line
   }, [id])
 
+<<<<<<< HEAD
   // useEffect for getting the user data and checking auth
   useEffect(() => {
     const fetchData = async () => {
@@ -161,6 +162,20 @@ export default function Profile({
             className="pt-8 px-8 pb-2"
             src={`https://res.cloudinary.com/dshcawt4j/image/upload/w_400,h_250,c_scale/${cloudId}.png`}
             alt={cloudId}
+=======
+  const allUserPictures = userProfile.pictures.map(picture => {
+    return (
+      <div key={picture._id} className='flex'>
+        <div className='bg-gray-100 m-5 rounded-xl shadow-lg' key={picture._id}>
+          <PictureDetails
+            blurToggle={blurToggle}
+            setBlurToggle={setBlurToggle}
+            picture={picture}
+            setUserProfile={setUserProfile}
+            currentUser={currentUser}
+            userProfile={userProfile}
+            userId={id}
+>>>>>>> 5dd0548d8b1ef272e58d07282d1c127afcb56747
           />
           <p className="text-center font-bold">{caption}</p>
           <button
@@ -175,6 +190,7 @@ export default function Profile({
   })
 
   return (
+<<<<<<< HEAD
     <div>
       <div className="h-fit mt-10 bg-white flex flex-col justify-center items-center">
         <div className="bg-gray-100 rounded-xl mb-5 border-gray-300 w-200 p-10 flex flex-col items-center shadow-lg">
@@ -237,10 +253,35 @@ export default function Profile({
             >
               Delete Profile <TrashIcon className="h-5 w-5 text-white" />{' '}
             </button>
+=======
+    <div className=''>
+      <div className={blurToggle ? 'blur ' : null}>
+        <div className='  bg-white flex flex-col justify-center items-center '>
+          <div className='bg-gray-100 rounded-xl mb-5 w-200 p-10 flex flex-col items-center shadow-lg'>
+            <h1 className='font-bold text-3xl font-sans'>{userProfile.name}</h1>
+            {userProfile ? (
+              userProfile.profilePicture ? (
+                <img
+                  className='h-40 w-40 object-cover rounded-full'
+                  src={`https://res.cloudinary.com/dshcawt4j/image/upload/v1593119998/${userProfile.profilePicture}.png`}
+                  alt='user'
+                />
+              ) : (
+                <img
+                  className='h-40 w-40 object-cover rounded-full'
+                  src='http://placekitten.com/200/300'
+                  alt='cats'
+                />
+              )
+            ) : (
+              <div>Loading...</div>
+            )}
+>>>>>>> 5dd0548d8b1ef272e58d07282d1c127afcb56747
           </div>
         </div>
       </div>
 
+<<<<<<< HEAD
       {modalToggle ? (
         <FileUploadForm
           modalToggle={modalToggle}
@@ -262,6 +303,9 @@ export default function Profile({
       </div>
 
       <div className="grid grid-cols-3">{allUserPictures}</div>
+=======
+      <div className='grid grid-cols-3 '>{allUserPictures}</div>
+>>>>>>> 5dd0548d8b1ef272e58d07282d1c127afcb56747
     </div>
   )
 }
