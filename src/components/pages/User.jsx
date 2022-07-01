@@ -47,6 +47,7 @@ export default function User({ currentUser }) {
             currentUser={currentUser}
             userProfile={userProfile}
             userId={id}
+            setUserProfile={setUserProfile}
           />
         </div>
       </div>

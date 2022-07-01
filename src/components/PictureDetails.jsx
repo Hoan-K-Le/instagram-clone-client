@@ -37,12 +37,11 @@ export default function PictureDetails({
             alt="cloudId"
           />
 
-          {currentUser.name ? (
+        
             <p>
-              {currentUser.name}: {caption}
+              {caption}
             </p>
-          ) : null}
-        </div>
+       
 
         {modalToggle ? (
           <PictureModal
