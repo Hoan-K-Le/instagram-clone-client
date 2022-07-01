@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import Comment from './Comment'
 
+
 export default function PictureModal({
   picture,
   setModalToggle,
@@ -70,6 +71,7 @@ export default function PictureModal({
           // handleDeletePicture={handleDeletePicture}
           picture={picture}
         />
+
       </div>
     )
   })

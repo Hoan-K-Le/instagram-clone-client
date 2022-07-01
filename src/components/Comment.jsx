@@ -65,9 +65,6 @@ export default function Comment({
                 Delete Comment
               </button>
               <button onClick={() => setEdit(!edit)}>Edit</button>
-              <button onClick={() => handleDeletePicture(picture._id)}>
-                Delete Post
-              </button>
             </div>
           ) : null}
         </div>
