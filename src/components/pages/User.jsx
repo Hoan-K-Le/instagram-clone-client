@@ -51,6 +51,7 @@ export default function User({ currentUser }) {
   })
 
   return (
+
     <div className=''>
       <div className={blurToggle ? 'blur ' : null}>
         <div className=' mt-10 bg-white flex flex-col justify-center items-center '>
@@ -82,6 +83,7 @@ export default function User({ currentUser }) {
           <div className=''></div>
         </div>
       </div>
+
     </div>
   )
 }

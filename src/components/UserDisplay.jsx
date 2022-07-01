@@ -19,5 +19,7 @@ export default function UserDisplay({ user: { name, pictures } }) {
         </div>
       </div>
     </div>
+
   )
+
 }
