@@ -38,6 +38,7 @@ export default function User({ currentUser }) {
     return (
       <div key={picture._id}>
         <PictureDetails
+          setUserProfile={setUserProfile}
           blurToggle={blurToggle}
           setBlurToggle={setBlurToggle}
           picture={picture}
