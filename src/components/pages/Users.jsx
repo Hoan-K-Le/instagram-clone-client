@@ -44,19 +44,18 @@ export default function Users({ currentUser }) {
 
   return (
     <div>
-
       {/* <h1 className="text-center text-3xl font-sans p-10">List of Users:</h1> */}
-      <div className="min-h-screen px-8 py-16 bg-white">
-        <div className="grid gap-8 items-start justify-center">
-          <div class="relative">
-            <div className="absolute inset-1 bg-gray-600 blur-xl"></div>
-            <div className=" relative px-7 py-4  bg-black rounded-lg leading-none flex items-center">
-              <span className="flex items-center space-x-5"></span>
-              <span className="text-gray-100 text-xl">List Of Users</span>
+      <div className='min-h-screen px-8 py-16 bg-white'>
+        <div className='grid gap-8 items-start justify-center'>
+          <div className='relative'>
+            <div className='absolute inset-1 bg-gray-600 blur-xl'></div>
+            <div className=' relative px-7 py-4  bg-black rounded-lg leading-none flex items-center'>
+              <span className='flex items-center space-x-5'></span>
+              <span className='text-gray-100 text-xl'>List Of Users</span>
             </div>
           </div>
         </div>
-        <div className=" grid grid-cols-3 ">{allUsers}</div>
+        <div className=' grid grid-cols-3 '>{allUsers}</div>
       </div>
     </div>
   )
