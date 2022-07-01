@@ -61,8 +61,11 @@ export default function Navbar({ currentUser, handleLogout }) {
           >
             <li>
               <a
+
                 href='/profile'
+
                 className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-500 dark:hover:text-violet-400'
+
               >
                 Profile
               </a>

@@ -57,7 +57,6 @@ export default function User({ currentUser }) {
 
     <div className="">
       <div className={blurToggle ? 'blur ' : null}>
-
         <div className="  bg-white flex flex-col justify-center items-center ">
           <div className="bg-gray-100 rounded-xl mb-5 w-200 p-10 flex flex-col items-center shadow-lg">
             <h1 className="font-bold text-3xl font-sans">{userProfile.name}</h1>
@@ -82,10 +81,11 @@ export default function User({ currentUser }) {
         </div>
       </div>
 
-
       <div className='grid grid-cols-3 '>
         {allUserPictures}
-      
+        <div className={blurToggle ? 'blur ' : null}>
+          <div className=''></div>
+        </div>
       </div>
 
     </div>
