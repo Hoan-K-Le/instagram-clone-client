@@ -95,7 +95,7 @@ export default function FileUploadForm({
         className="text-center flex mx-auto items-center justify-center overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full"
       >
         <div className="relative p-4 w-full max-w-md h-full md:h-auto">
-          <div className="relative bg-white rounded-lg shadow dark:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+          <div className="relative bg-white rounded-lg shadow bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
             <div className="flex justify-between items-center p-5  dark:border-gray-600 ">
               <h3 className="text-xl font-medium text-gray-900 dark:text-white">
                 Upload a Pic!

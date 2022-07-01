@@ -179,7 +179,7 @@ export default function Profile({
       <div className='h-fit mt-10 bg-white flex flex-col justify-center items-center'>
         <div className='bg-gray-100 rounded-xl mb-5 border-gray-300 w-200 p-10 flex flex-col items-center shadow-lg'>
           <div className='bg-gray-100 mb-3 rounded-lg'>
-            <h1 className='animate-bounce font-bold p-3 px-20 rounded-lg'>
+            <h1 className='font-bold p-3 px-20 rounded-lg'>
               Hello, {name}
             </h1>
           </div>
