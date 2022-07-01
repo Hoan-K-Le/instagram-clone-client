@@ -1,10 +1,13 @@
-
-
 import React from 'react'
 import { Link } from 'react-router-dom'
 import image from '../images/picitupfinal.png'
 import { useState } from 'react'
-
+import {
+  LogoutIcon,
+  UserGroupIcon,
+  SortDescendingIcon,
+  UserIcon,
+} from '@heroicons/react/outline'
 
 export default function Navbar({ currentUser, handleLogout }) {
   const [toggleDrop, setToggleDrop] = useState(false)
@@ -18,6 +21,7 @@ export default function Navbar({ currentUser, handleLogout }) {
         <Link to="/">
           <img width="150" src={image} alt={image} />
         </Link>
+
         <button
           id="dropdownDefault"
           data-dropdown-toggle="dropdown"
@@ -25,9 +29,8 @@ export default function Navbar({ currentUser, handleLogout }) {
           className="relative text-white focus:ring-4 focus:outline-none focus:ring-gray-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-white-600 dark:hover:bg-white-700 dark:focus:ring-white-800"
           type="button"
         >
-
+          <SortDescendingIcon className="h-7 w-7 text-white mt-2 mr-3 transition duration-300 hover:text-violet-400" />
           {currentUser ? (
-
             currentUser.profilePicture ? (
               <img
                 className="w-12 h-12 rounded-full border"
@@ -44,7 +47,6 @@ export default function Navbar({ currentUser, handleLogout }) {
           ) : (
             <div>Loading...</div>
           )}
-
         </button>
 
         <div
@@ -61,31 +63,27 @@ export default function Navbar({ currentUser, handleLogout }) {
           >
             <li>
               <a
-
-                href='/profile'
-
-                className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-500 dark:hover:text-violet-400'
-
+                href="/profile"
+                className="flex gap-x-2 px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-500 dark:hover:text-violet-400"
               >
+                <UserIcon className="h-5 w-5 text-white transition duration-300 hover:text-violet-400" />
                 Profile
               </a>
             </li>
             <li>
               <a
                 href="/users"
-                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-500 dark:hover:text-violet-400"
+                className="flex gap-x-2 px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-300 dark:hover:text-violet-400"
               >
+                <UserGroupIcon className="h-5 w-5 text-white transition duration-300 hover:text-violet-400" />
                 All Users
               </a>
             </li>
-
-
-
-            <li className='hover:cursor-pointer '>
-              <Link to='/'>
+            <li className="hover:cursor-pointer ">
+              <Link to="/">
                 <span onClick={logOutAndCloseNav}>
-                  <p className='font-bold ml-4 pt-2 pb-1 transition duration-500 hover:text-blue-400'>
-
+                  <p className="flex gap-x-2 font-bold ml-4 pt-2 pb-2 transition duration-300 hover:text-blue-400">
+                    <LogoutIcon className="h-5 w-5 text-white transition duration-300 hover:text-blue-400" />
                     Log Out
                   </p>
                 </span>

@@ -1,39 +1,33 @@
+// displays a user's profile to a logged in user
+
+// if it is somehow currentUser and the profile id is the same, redirect to their own profile page
+
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import FileUploadForm from '../FileUploadForm'
-import {
-  MailIcon,
-  PhotographIcon,
-  PencilAltIcon,
-  TrashIcon,
-} from '@heroicons/react/outline'
-import { Link, useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
+import PictureDetails from '../PictureDetails'
 
-export default function Profile({
-  currentUser: { name, email, id },
-  setCurrentUser,
-  handleLogout,
-  currentUser,
-}) {
+// blur out bg when modal
+export default function User({ currentUser }) {
   // state for the secret message for user priv data
   const [userProfile, setUserProfile] = useState({
     pictures: [],
   })
-  const [msg, setMsg] = useState('')
-  const [modalToggle, setModalToggle] = useState(false)
-  const [formImg, setFormImg] = useState(null)
-  const [image, setImage] = useState('')
-  const navigate = useNavigate()
+  const [blurToggle, setBlurToggle] = useState(false)
+  const { id } = useParams()
 
   const serverUrl = process.env.REACT_APP_SERVER_URL
 
+  // useEffect for getting the user data and checking auth
   useEffect(() => {
     const fetchUser = async () => {
       try {
         const res = await axios.get(`${serverUrl}/api-v1/users/${id}`)
         setUserProfile(res.data)
+        // setPictures(res.data.pictures)
+        // console.log(res.data)
       } catch (err) {
-        console.warn()
+        console.warn(err)
       }
     }
     fetchUser()
@@ -53,13 +47,6 @@ export default function Profile({
             userProfile={userProfile}
             userId={id}
           />
-          <p className="text-center font-bold">{caption}</p>
-          <button
-            className="mt-3 ml-56 flex gap-x-2 row-reverse bg-red-500 p-2 rounded-lg mb-3 font-bold text-white hover:-translate-y-0.5 hover:scale-110 hover:bg-orange-400 duration-300"
-            onClick={() => handleDeletePost(_id)}
-          >
-            Delete Picture <TrashIcon className="h-5 w-5 text-white" />
-          </button>
         </div>
       </div>
     )

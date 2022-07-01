@@ -59,6 +59,21 @@ export default function Login({ currentUser, setCurrentUser }) {
         className="fixed overflow-hidden max-w-[2400px] "
       ></video>
       <div className="max-w-4xl mx-auto  w-full overflow-hidden  bg-gray-100 flex flex-col justify-center min-h-full object-fill items-center h-screen">
+        <div className="z-10 w-64 overflow-hidden pt-15 rounded-md pb-2">
+          {/* <video
+            src={promo}
+            className='relative w-64 h-64 p-0 m-0 overflow-hidden rounded-md'
+          ></video> */}
+          <iframe
+            src="https://share.synthesia.io/embeds/videos/c36f31ea-7fc1-4bfc-b60e-cfc80194eb64"
+            loading="lazy"
+            title="Synthesia video player - Your AI video"
+            allow="encrypted-media; accelerometer; autoplay"
+            allowFullScreen
+            className="relative w-full h-full p-0 m-0 overflow-hidden"
+            // style='position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0; overflow:hidden;'
+          ></iframe>
+        </div>
         <div className=" bg-gray-100  flex flex-col justify-center items-center rounded-3xl ">
           <div className=" rounded-3xl mb-3 relative border-gray-300 w-80 pt-8 pb-5 flex flex-col items-center bg-gray-200">
             <img width="250" src={image} alt="pic" />
