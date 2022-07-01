@@ -4,9 +4,7 @@
 
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { PhotographIcon } from '@heroicons/react/outline'
 import { useParams } from 'react-router-dom'
-import avatarIcon from '../../images/avataricon.png'
 import PictureDetails from '../PictureDetails'
 
 // blur out bg when modal
@@ -52,7 +50,7 @@ export default function User({ currentUser }) {
   })
 
   return (
-    <div className="">
+    <div>
       <div className={blurToggle ? 'blur ' : null}>
         <div className=" mt-10 bg-white flex flex-col justify-center items-center ">
           <div className="bg-gray-100 rounded-xl mb-5 w-200 p-10 flex flex-col items-center shadow-lg">

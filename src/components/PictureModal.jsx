@@ -79,7 +79,7 @@ export default function PictureModal({
     <div
       id='medium-modal'
       tabIndex='-1'
-      className='text-center flex mx-auto items-center justify-center overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full'
+      className='text-center flex mx-auto items-center justify-center overscroll-auto overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full'
     >
       <div className='relative p-4 w-full max-w-lg h-full md:h-auto'>
         <div className='relative  bg-white rounded-lg shadow dark:bg-gray-500 justify-center'>
@@ -134,7 +134,7 @@ export default function PictureModal({
                 }
               />
 
-              <button className='bg-green-400 text-white font-bold rounded-lg p-2 m-3 shadow-lg transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-blue-400 duration-300'>Submit</button>
+              <button className='bg-green-400 text-white font-bold rounded-lg p-2 m-3 shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-blue-400 duration-300'>Submit</button>
             </form>
           </div>
 
