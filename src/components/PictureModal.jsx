@@ -10,7 +10,7 @@ export default function PictureModal({
   currentUser,
   userId,
   setUserProfile,
-  userProfile,
+
   blurToggle,
   setBlurToggle,
 }) {
@@ -119,7 +119,10 @@ export default function PictureModal({
               alt='placeholder'
             />
             {/* make all comments in its own scrolling containter */}
-            {allComments}
+
+            <div className='overflow-x-auto'>{allComments}</div>
+          </div>
+          <div>
             <form onSubmit={handleCommentSubmit}>
               <label htmlFor='comment'>Make a comment: </label>
               <input

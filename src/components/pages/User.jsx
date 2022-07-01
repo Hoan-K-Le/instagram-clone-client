@@ -40,6 +40,7 @@ export default function User({ currentUser }) {
         <PictureDetails
           blurToggle={blurToggle}
           setBlurToggle={setBlurToggle}
+          setUserProfile={setUserProfile}
           picture={picture}
           currentUser={currentUser}
           userProfile={userProfile}
