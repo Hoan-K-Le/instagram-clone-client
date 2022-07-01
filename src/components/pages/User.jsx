@@ -38,15 +38,17 @@ export default function User({ currentUser }) {
 
   const allUserPictures = userProfile.pictures.map(picture => {
     return (
-      <div key={picture._id}>
-        <PictureDetails
-          blurToggle={blurToggle}
-          setBlurToggle={setBlurToggle}
-          picture={picture}
-          currentUser={currentUser}
-          userProfile={userProfile}
-          userId={id}
-        />
+      <div className="flex">
+        <div className="bg-gray-100 m-5 rounded-xl shadow-lg" key={picture._id}>
+          <PictureDetails
+            blurToggle={blurToggle}
+            setBlurToggle={setBlurToggle}
+            picture={picture}
+            currentUser={currentUser}
+            userProfile={userProfile}
+            userId={id}
+          />
+        </div>
       </div>
     )
   })
@@ -54,12 +56,13 @@ export default function User({ currentUser }) {
   return (
     <div className="">
       <div className={blurToggle ? 'blur ' : null}>
-        <div className=" mt-10 bg-white flex flex-col justify-center items-center ">
+        <div className="  bg-white flex flex-col justify-center items-center ">
           <div className="bg-gray-100 rounded-xl mb-5 w-200 p-10 flex flex-col items-center shadow-lg">
             <h1 className="font-bold text-3xl font-sans">{userProfile.name}</h1>
             {currentUser ? (
               currentUser.profilePicture ? (
                 <img
+                  className="pt-8 px-8 pb-4"
                   src={`https://res.cloudinary.com/dshcawt4j/image/upload/v1593119998/${currentUser.profilePicture}.png`}
                   alt="user"
                 />

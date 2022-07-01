@@ -25,7 +25,7 @@ export default function PictureDetails({
 
   return (
     <div className=" ">
-      <div className="mt-3 m-10 p-8 shadow-xl bg-gray-100  ">
+      <div className="m-10">
         <div className={blurToggle ? 'blur ' : null}>
           <img
             onClick={() => {
@@ -36,7 +36,12 @@ export default function PictureDetails({
             src={`https://res.cloudinary.com/dshcawt4j/image/upload/w_450,h_250,c_scale/${cloudId}.png`}
             alt="cloudId"
           />
-          <p>{caption}</p>
+
+          {currentUser.name ? (
+            <p>
+              {currentUser.name}: {caption}
+            </p>
+          ) : null}
         </div>
 
         {modalToggle ? (
